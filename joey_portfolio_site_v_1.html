@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Joey Pilewski · Ops & Systems Analyst</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Ops & Systems Analyst specializing in NetSuite, operations, and AI-powered tooling." />
+  <style>
+    :root {
+      --bg: #050816;
+      --bg-alt: #0b1020;
+      --card: #0f172a;
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.1);
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --border: #1f2937;
+      --radius-lg: 1.25rem;
+      --radius-full: 999px;
+      --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.75);
+      --max-width: 1080px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+      background: radial-gradient(circle at top, #0f172a 0, #020617 45%, #000 100%);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    main {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 2rem 1.5rem 4rem;
+    }
+
+    header {
+      padding: 2rem 0 3rem;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.25rem 0.9rem;
+      border-radius: var(--radius-full);
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+
+    .pill-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, #a5b4fc, #38bdf8);
+      box-shadow: 0 0 16px #38bdf8;
+    }
+
+    .hero-top {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      align-items: flex-start;
+    }
+
+    .hero-name {
+      font-size: clamp(2.2rem, 4vw, 3rem);
+      font-weight: 750;
+      letter-spacing: -0.04em;
+    }
+
+    .hero-title {
+      font-size: 1rem;
+      color: var(--muted);
+    }
+
+    .hero-tagline {
+      margin-top: 0.5rem;
+      font-size: 1.05rem;
+      max-width: 40rem;
+      color: #d1d5db;
+    }
+
+    .hero-actions {
+      margin-top: 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.65rem 1.1rem;
+      border-radius: var(--radius-full);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: transform 0.12s ease-out, box-shadow 0.12s ease-out, background 0.12s ease-out, border-color 0.12s ease-out;
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--text);
+    }
+
+    .btn-primary {
+      background: radial-gradient(circle at 30% 0, #38bdf8, #0ea5e9 45%, #0369a1 100%);
+      border-color: #38bdf8;
+      box-shadow: 0 12px 32px rgba(56, 189, 248, 0.45);
+      color: #0b1220;
+      font-weight: 600;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px) scale(1.01);
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.7);
+      border-color: #38bdf8;
+    }
+
+    .btn-primary:hover {
+      box-shadow: 0 16px 40px rgba(56, 189, 248, 0.6);
+    }
+
+    .btn span {
+      margin-left: 0.4rem;
+      font-size: 0.9em;
+    }
+
+    .hero-meta {
+      margin-top: 1.25rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+    }
+
+    .hero-meta span {
+      opacity: 0.9;
+    }
+
+    section {
+      margin-bottom: 3rem;
+    }
+
+    section h2 {
+      font-size: 1.35rem;
+      margin-bottom: 1rem;
+      letter-spacing: -0.03em;
+    }
+
+    .section-subtitle {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 1.75rem;
+    }
+
+    .card {
+      background: linear-gradient(145deg, rgba(15, 23, 42, 0.98), rgba(15, 23, 42, 0.92));
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-soft);
+      padding: 1.5rem;
+    }
+
+    .grid {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .hero-layout {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 2rem;
+      }
+      .hero-top {
+        flex: 2;
+      }
+      .hero-side {
+        flex: 1.2;
+      }
+      .grid-2 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .grid-3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    .list {
+      margin-top: 0.75rem;
+      list-style: none;
+    }
+
+    .list li {
+      position: relative;
+      padding-left: 1.25rem;
+      margin-bottom: 0.4rem;
+      font-size: 0.95rem;
+    }
+
+    .list li::before {
+      content: "•";
+      position: absolute;
+      left: 0.2rem;
+      color: var(--accent);
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.75rem;
+    }
+
+    .tag {
+      padding: 0.15rem 0.65rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      font-size: 0.75rem;
+      color: var(--muted);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .experience-item + .experience-item {
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(31, 41, 55, 0.8);
+    }
+
+    .experience-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .experience-title {
+      font-weight: 600;
+    }
+
+    .experience-meta {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .project-title {
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .project-tagline {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    footer {
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(31, 41, 55, 0.8);
+      font-size: 0.85rem;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    .contact-link {
+      color: var(--accent);
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <div class="hero-layout">
+        <div class="hero-top">
+          <div class="pill">
+            <span class="pill-dot"></span>
+            <span>Ops & Systems Analyst · ERP / IT</span>
+          </div>
+          <div>
+            <h1 class="hero-name">Joey Pilewski</h1>
+            <p class="hero-title">NetSuite · Operations · AI-Powered Tooling</p>
+            <p class="hero-tagline">
+              I turn messy, manual workflows into reliable systems—connecting ops, finance, and tech so teams ship faster and make fewer mistakes.
+            </p>
+          </div>
+          <div class="hero-actions">
+            <a href="YOUR_RESUME_URL.pdf" class="btn btn-primary">
+              Resume
+              <span>↗</span>
+            </a>
+            <a href="https://www.linkedin.com/in/YOUR_LINKEDIN" class="btn">
+              LinkedIn
+              <span>↗</span>
+            </a>
+            <a href="https://github.com/YOUR_GITHUB" class="btn">
+              GitHub
+              <span>↗</span>
+            </a>
+          </div>
+          <div class="hero-meta">
+            <span>Based on Long Island, NY</span>
+            <span>ERP / NetSuite · Ops & PM · Data & AI</span>
+          </div>
+        </div>
+
+        <aside class="hero-side card">
+          <h2 style="font-size:1rem; margin-bottom:0.5rem;">What I Do</h2>
+          <p style="font-size:0.9rem; color:var(--muted);">
+            I design and implement systems that reduce manual work, enforce guardrails, and give clean visibility across finance, inventory, and fulfillment.
+          </p>
+          <ul class="list" style="margin-top:0.75rem;">
+            <li>Lead NetSuite implementations end-to-end</li>
+            <li>Productize internal IP & validations</li>
+            <li>Build analytics & reporting workflows</li>
+            <li>Prototype AI-powered tools & automations</li>
+          </ul>
+        </aside>
+      </div>
+    </header>
+
+    <section id="projects">
+      <h2>Featured Projects</h2>
+      <p class="section-subtitle">
+        A few systems and tools that represent how I think about automation, controls, and operator experience.
+      </p>
+      <div class="grid grid-2">
+        <article class="card">
+          <div class="project-title">Receipt Right – iOS App</div>
+          <div class="project-tagline">Who-got-what, without the math.</div>
+          <p class="muted">
+            Uses the OpenAI API to parse receipt photos into line items, lets friends assign who-got-what, and generates Venmo requests.
+            Designed for fast scanning and sharing with structured JSON outputs for reliable parsing.
+          </p>
+          <ul class="list">
+            <li>Built with Swift / SwiftUI and OpenAI structured outputs</li>
+            <li>Handles shared items, tax, and tips cleanly</li>
+            <li>Focused on making “split the bill” painless</li>
+          </ul>
+          <div class="tag-row">
+            <span class="tag">Swift / SwiftUI</span>
+            <span class="tag">OpenAI API</span>
+            <span class="tag">Structured Outputs</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="project-title">Agentic Trader – Python + IBKR (Paper)</div>
+          <div class="project-tagline">An AI-assisted trading agent with guardrails.</div>
+          <p class="muted">
+            Uses OpenAI’s Agents SDK and IBKR paper trading to research tickers, size positions, and place trades within defined risk limits,
+            logging decisions and monitoring open positions with alerts.
+          </p>
+          <ul class="list">
+            <li>Tool calling for market data and web research</li>
+            <li>Enforces sizing and exposure constraints</li>
+            <li>Designed to be auditable end-to-end</li>
+          </ul>
+          <div class="tag-row">
+            <span class="tag">Python</span>
+            <span class="tag">OpenAI Agents</span>
+            <span class="tag">IBKR API</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="project-title">RSM NetSuite Validation IP</div>
+          <div class="project-tagline">From custom work to reusable accelerators.</div>
+          <p class="muted">
+            Helped productize Vendor Master Validation and Inventory Status Enforcement logic into accelerators that reduced custom dev hours
+            and improved data integrity across multiple client projects.
+          </p>
+          <ul class="list">
+            <li>Cut custom dev hours by ~25–40%</li>
+            <li>Improved first-time-right data quality</li>
+            <li>Encapsulated client lessons into reusable IP</li>
+          </ul>
+          <div class="tag-row">
+            <span class="tag">NetSuite</span>
+            <span class="tag">SuiteFlow</span>
+            <span class="tag">Controls</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="project-title">Online Embroidery Store</div>
+          <div class="project-tagline">Turning a side hustle into a system.</div>
+          <p class="muted">
+            Built and ran an online embroidery store that scaled to ~$200K annual revenue and 3,500+ orders with a 5.0-star rating by engineering
+            the order-to-ship process across Shopify, inventory, and outsourcing partners.
+          </p>
+          <ul class="list">
+            <li>Designed order routing & vendor workflows</li>
+            <li>Built demand & margin dashboards in Excel / Power Query</li>
+            <li>Balanced CX, cost, and fulfillment complexity</li>
+          </ul>
+          <div class="tag-row">
+            <span class="tag">Shopify</span>
+            <span class="tag">Ops Design</span>
+            <span class="tag">Power Query</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="experience">
+      <h2>Experience</h2>
+      <p class="section-subtitle">
+        A mix of consulting, productized IP, and operator experience across ERP, inventory, and fulfillment.
+      </p>
+      <div class="card">
+        <div class="experience-item">
+          <div class="experience-header">
+            <div class="experience-title">Business Application Consulting Senior Associate · RSM US LLP</div>
+            <div class="experience-meta">New York, NY · Jul 2022 – Present</div>
+          </div>
+          <p class="muted" style="margin-top:0.4rem;">
+            Lead NetSuite ERP implementations for mid-market clients across retail, manufacturing, and life sciences, from discovery through go-live and hypercare.
+          </p>
+          <ul class="list">
+            <li>Implemented Work Orders & Assemblies, inventory status controls, outsourced manufacturing, and WIP & Routings.</li>
+            <li>Productized Vendor Master Validation and Inventory Status Enforcement accelerators to reduce custom dev and improve data integrity.</li>
+            <li>Replaced manual spreadsheets with SuiteAnalytics Workbooks and saved searches to improve reporting accuracy.</li>
+            <li>Bridged technical teams and C-suite stakeholders, translating requirements into scalable system configurations.</li>
+          </ul>
+        </div>
+
+        <div class="experience-item">
+          <div class="experience-header">
+            <div class="experience-title">Owner & Manager · Online Embroidery Store</div>
+            <div class="experience-meta">Remote · Jul 2020 – Jul 2022</div>
+          </div>
+          <p class="muted" style="margin-top:0.4rem;">
+            Scaled an e-commerce embroidery store to ~$200K annual revenue and 3,500+ orders with a 5.0-star rating by designing the end-to-end order-to-ship process.
+          </p>
+          <ul class="list">
+            <li>Owned marketing, order intake, vendor coordination, inventory, and post-purchase experience.</li>
+            <li>Built Excel / Power Query dashboards for sales, margin, and demand planning.</li>
+            <li>Designed reliable workflows between Shopify, inventory, and outsourcing partners.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2>Skills & Tools</h2>
+      <p class="section-subtitle">
+        The tools I reach for most often when turning processes into systems.
+      </p>
+      <div class="grid grid-3">
+        <div class="card">
+          <h3 style="font-size:1rem; margin-bottom:0.5rem;">ERP & NetSuite</h3>
+          <ul class="list">
+            <li>SuiteFlow approvals & roles/permissions</li>
+            <li>SuiteAnalytics Workbooks & saved searches</li>
+            <li>Work Orders & Assemblies, WIP & Routings</li>
+            <li>Inventory status control, bins, cutovers</li>
+            <li>CSV imports, data migration, UAT/SIT</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3 style="font-size:1rem; margin-bottom:0.5rem;">Ops & Delivery</h3>
+          <ul class="list">
+            <li>Process mapping & SOPs</li>
+            <li>KPI design & root cause analysis</li>
+            <li>Change management & stakeholder comms</li>
+            <li>Requirements, user stories, backlog / RAID</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3 style="font-size:1rem; margin-bottom:0.5rem;">Data, AI & Dev</h3>
+          <ul class="list">
+            <li>Excel (Power Query, pivots, XLOOKUP)</li>
+            <li>Python (pandas)</li>
+            <li>OpenAI API (tool calling, structured outputs)</li>
+            <li>Swift / SwiftUI, Git, JIRA / Confluence</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="targets">
+      <h2>What I’m Looking For</h2>
+      <p class="section-subtitle">
+        Roles where I can own systems, shape process, and improve visibility across finance, inventory, and fulfillment.
+      </p>
+      <div class="card">
+        <ul class="list">
+          <li>Internal Operations / IT Systems Analyst</li>
+          <li>ERP / NetSuite Administrator</li>
+          <li>Business Operations or Revenue Operations Analyst</li>
+          <li>Supply Chain / Inventory Analyst</li>
+          <li>Attractions / Cruise Operations Analyst</li>
+        </ul>
+        <p class="muted" style="margin-top:0.75rem;">
+          I’m especially drawn to environments where I can collaborate with operators and engineers, prototype small automations,
+          and gradually replace spreadsheet glue with reliable systems.
+        </p>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p class="section-subtitle">
+        Best way to reach me is by email, but I’m also active on LinkedIn.
+      </p>
+      <div class="card">
+        <p>
+          📧 <a class="contact-link" href="mailto:joeypilewski@gmail.com">joeypilewski@gmail.com</a>
+        </p>
+        <p class="muted" style="margin-top:0.5rem;">
+          Happy to walk through specific implementations I’ve led, my apps, or how I’d approach improving your current systems.
+        </p>
+      </div>
+    </section>
+
+    <footer>
+      &copy; <span id="year"></span> Joey Pilewski
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
