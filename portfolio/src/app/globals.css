@@ -1,0 +1,97 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-gradient-radial text-text antialiased;
+    min-height: 100vh;
+  }
+
+  a {
+    @apply text-inherit no-underline;
+  }
+
+  ::selection {
+    @apply bg-accent/30 text-white;
+  }
+}
+
+@layer components {
+  /* Card base */
+  .card {
+    @apply bg-gradient-card rounded-lg border border-border shadow-soft p-6;
+  }
+
+  /* Pill badge */
+  .pill {
+    @apply inline-flex items-center gap-2 px-3.5 py-1 rounded-full;
+    @apply bg-card/85 border border-slate-400/30;
+    @apply text-sm text-text-muted;
+  }
+
+  .pill-dot {
+    @apply w-2 h-2 rounded-full bg-gradient-pill-dot shadow-glow;
+  }
+
+  /* Buttons */
+  .btn {
+    @apply inline-flex items-center justify-center px-4 py-2.5 rounded-full;
+    @apply border border-slate-400/35 bg-card/90 text-text text-sm;
+    @apply cursor-pointer transition-all duration-150 ease-out;
+    @apply hover:-translate-y-0.5 hover:scale-[1.01] hover:border-accent;
+    @apply hover:shadow-[0_12px_30px_rgba(15,23,42,0.7)];
+    @apply focus:outline-none focus:ring-2 focus:ring-accent/50 focus:ring-offset-2 focus:ring-offset-bg;
+  }
+
+  .btn-primary {
+    @apply bg-gradient-btn-primary border-accent shadow-btn-primary;
+    @apply text-[#0b1220] font-semibold;
+    @apply hover:shadow-btn-primary-hover;
+  }
+
+  /* Tags */
+  .tag {
+    @apply px-2.5 py-0.5 rounded-full text-xs;
+    @apply border border-slate-400/40 bg-card/90 text-text-muted;
+  }
+
+  /* Lists with accent bullets */
+  .list {
+    @apply mt-3 space-y-1.5;
+  }
+
+  .list li {
+    @apply relative pl-5 text-[0.95rem] text-text-muted;
+  }
+
+  .list li::before {
+    content: "•";
+    @apply absolute left-1 text-accent;
+  }
+
+  /* Section styles */
+  .section-title {
+    @apply text-xl font-semibold tracking-tight mb-4;
+  }
+
+  .section-subtitle {
+    @apply text-sm text-text-muted mb-6;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
