@@ -37,7 +37,7 @@ export function Header() {
   }, [isMenuOpen]);
 
   return (
-    <header className="sticky top-0 z-50 bg-[#0a0a0a] border-b border-border/50">
+    <header className="sticky top-0 z-50 backdrop-blur-md bg-bg/80 border-b border-border/50">
       <nav className="max-w-content mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           <Link

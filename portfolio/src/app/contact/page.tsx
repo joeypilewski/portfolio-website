@@ -6,7 +6,7 @@ export default function ContactPage() {
             <div>
                 <h1 className="text-4xl font-bold text-white mb-4">Contact</h1>
                 <p className="text-text-muted">
-                    I'd love to hear from you. Feel free to reach out about opportunities,
+                    I&apos;d love to hear from you. Feel free to reach out about opportunities,
                     collaborations, or just to say hello.
                 </p>
             </div>
