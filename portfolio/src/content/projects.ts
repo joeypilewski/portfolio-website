@@ -27,7 +27,7 @@ export const projects: Project[] = [
     ],
     tags: ["Swift", "SwiftUI", "OpenAI API"],
     links: {
-      github: "https://github.com/YOUR_GITHUB/receipt-right",
+      github: "https://github.com/joeypilewski/receipt-right",
     },
     featured: true,
   },
@@ -44,7 +44,7 @@ export const projects: Project[] = [
     ],
     tags: ["Python", "OpenAI Agents", "IBKR API"],
     links: {
-      github: "https://github.com/YOUR_GITHUB/agentic-trader",
+      github: "https://github.com/joeypilewski/agentic-trader",
     },
     featured: true,
   },
@@ -74,6 +74,9 @@ export const projects: Project[] = [
       "Balanced CX, cost & fulfillment complexity",
     ],
     tags: ["Shopify", "Ops Design", "Power Query"],
+    links: {
+      demo: "https://thestylesshopco.com",
+    },
     featured: true,
   },
 ];

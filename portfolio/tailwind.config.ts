@@ -10,48 +10,46 @@ const config: Config = {
     extend: {
       colors: {
         bg: {
-          DEFAULT: "#050816",
-          alt: "#0b1020",
+          DEFAULT: "#0a0a0a", // Deep space black
+          alt: "#111111",
         },
-        card: "#0f172a",
+        card: "#121212",
         accent: {
-          DEFAULT: "#38bdf8",
-          soft: "rgba(56, 189, 248, 0.1)",
+          DEFAULT: "#818cf8", // Indigo-400
+          soft: "rgba(129, 140, 248, 0.1)",
         },
         text: {
-          DEFAULT: "#e5e7eb",
-          muted: "#9ca3af",
+          DEFAULT: "#f3f4f6", // Gray-100
+          muted: "#9ca3af", // Gray-400
         },
-        border: "#1f2937",
+        border: "#27272a", // Zinc-800
       },
       borderRadius: {
-        lg: "1.25rem",
+        lg: "0.75rem", // Slightly sharper
         full: "999px",
       },
       boxShadow: {
-        soft: "0 18px 45px rgba(15, 23, 42, 0.75)",
-        glow: "0 0 16px #38bdf8",
-        "btn-primary": "0 12px 32px rgba(56, 189, 248, 0.45)",
-        "btn-primary-hover": "0 16px 40px rgba(56, 189, 248, 0.6)",
+        soft: "0 20px 40px -15px rgba(0, 0, 0, 0.5)",
+        glow: "0 0 20px rgba(129, 140, 248, 0.15)",
+        "btn-primary": "0 0 0 0 transparent", // Cleaner flat look
+        "btn-primary-hover": "0 10px 25px -5px rgba(129, 140, 248, 0.4)",
       },
       maxWidth: {
-        content: "1080px",
+        content: "1024px",
       },
       fontFamily: {
         sans: [
           "var(--font-inter)",
           "system-ui",
           "-apple-system",
-          "BlinkMacSystemFont",
-          "SF Pro Text",
           "sans-serif",
         ],
       },
       backgroundImage: {
-        "gradient-radial": "radial-gradient(circle at top, #0f172a 0, #020617 45%, #000 100%)",
-        "gradient-card": "linear-gradient(145deg, rgba(15, 23, 42, 0.98), rgba(15, 23, 42, 0.92))",
-        "gradient-btn-primary": "radial-gradient(circle at 30% 0, #38bdf8, #0ea5e9 45%, #0369a1 100%)",
-        "gradient-pill-dot": "radial-gradient(circle at 30% 30%, #a5b4fc, #38bdf8)",
+        "gradient-radial": "radial-gradient(circle at top center, #1e1b4b 0%, #0a0a0a 60%, #000000 100%)", // Deep indigo glow
+        "gradient-card": "linear-gradient(180deg, rgba(39, 39, 42, 0.4) 0%, rgba(24, 24, 27, 0.2) 100%)", // Glassy zinc
+        "gradient-btn-primary": "linear-gradient(135deg, #6366f1 0%, #4f46e5 100%)", // Indigo gradient
+        "gradient-pill-dot": "linear-gradient(135deg, #a5b4fc, #6366f1)",
       },
     },
   },

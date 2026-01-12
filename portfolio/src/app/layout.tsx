@@ -24,9 +24,15 @@ export const metadata: Metadata = {
     "AI",
     "Automation",
     "Consulting",
+    "Joey Pilewski",
+    "Long Island",
   ],
   authors: [{ name: "Joey Pilewski" }],
   creator: "Joey Pilewski",
+  icons: {
+    icon: "/favicon.svg",
+    apple: "/favicon.svg",
+  },
   openGraph: {
     type: "website",
     locale: "en_US",

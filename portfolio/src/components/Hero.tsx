@@ -1,74 +1,73 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
+import { ContactModal } from "./ContactModal";
 
 export function Hero() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
-    <section className="pt-8 pb-12">
-      <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start gap-8">
-        {/* Left side - Main hero content */}
-        <div className="flex-[2] space-y-5">
-          <div className="pill">
-            <span className="pill-dot" />
-            <span>Ops & Systems Analyst · ERP / IT</span>
+    <>
+      <section className="pt-20 pb-12">
+        <div className="flex flex-col items-start max-w-2xl space-y-8">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 text-xs font-medium text-accent">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
+            </span>
+            Available for new opportunities
           </div>
 
-          <div className="space-y-2">
-            <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
-              Joey Pilewski
+          <div className="space-y-4">
+            <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white leading-[1.1]">
+              Building intelligent
+              <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-indigo-500">
+                web systems.
+              </span>
             </h1>
-            <p className="text-text-muted">
-              NetSuite · Operations · AI-Powered Tooling
+            <p className="text-xl text-text-muted max-w-lg leading-relaxed">
+              I turn messy workflows into reliable, automated systems. Bridging operations, finance, and engineering.
             </p>
           </div>
 
-          <p className="text-gray-300 max-w-xl leading-relaxed">
-            I turn messy workflows into reliable systems—bridging ops, finance,
-            and tech so teams ship faster with fewer mistakes.
-          </p>
-
-          <div className="flex flex-wrap gap-3 pt-2">
-            <Link href="/contact" className="btn btn-primary">
-              Get in Touch <span className="ml-1">→</span>
+          <div className="flex flex-wrap gap-4 pt-4">
+            <Link href="#experience" className="px-6 py-3 rounded-full bg-white text-black font-semibold hover:bg-gray-200 transition-colors">
+              View Work
             </Link>
-            <a
-              href="https://linkedin.com/in/YOUR_LINKEDIN"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn"
+            <button
+              onClick={() => setIsModalOpen(true)}
+              className="px-6 py-3 rounded-full border border-white/10 bg-white/5 text-white hover:bg-white/10 transition-colors"
             >
-              LinkedIn <span className="ml-1">↗</span>
-            </a>
+              Contact Me
+            </button>
             <a
-              href="https://github.com/YOUR_GITHUB"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn"
+              href="/resume.pdf"
+              download
+              className="px-6 py-3 rounded-full border border-white/10 bg-white/5 text-white hover:bg-white/10 transition-colors flex items-center gap-2"
             >
-              GitHub <span className="ml-1">↗</span>
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+              Resume
             </a>
           </div>
 
-          <div className="flex flex-wrap gap-5 text-sm text-text-muted pt-2">
-            <span>📍 Long Island, NY</span>
-            <span>ERP · Ops & PM · Data & AI</span>
+          <div className="pt-8 flex items-center gap-6 text-sm text-text-muted">
+            <span className="flex items-center gap-2">
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+              Long Island, NY
+            </span>
+            <span className="flex items-center gap-2">
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+              Ops & Systems Analyst
+            </span>
           </div>
         </div>
+      </section>
 
-        {/* Right side - What I Do card */}
-        <aside className="flex-[1.2] card">
-          <h2 className="text-base font-semibold mb-3">What I Do</h2>
-          <p className="text-sm text-text-muted mb-4">
-            Design and implement systems that cut manual work, enforce
-            guardrails, and provide clear visibility across finance, inventory,
-            and fulfillment.
-          </p>
-          <ul className="list text-sm">
-            <li>Lead NetSuite implementations end-to-end</li>
-            <li>Productize internal IP & validations</li>
-            <li>Build analytics & reporting workflows</li>
-            <li>Prototype AI-powered automations</li>
-          </ul>
-        </aside>
-      </div>
-    </section>
+      <ContactModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+    </>
   );
 }
