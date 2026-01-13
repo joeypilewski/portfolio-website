@@ -52,6 +52,10 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  other: {
+    "theme-color": "#0a0a0a",
+    "apple-mobile-web-app-status-bar-style": "black-translucent",
+  },
 };
 
 export default function RootLayout({

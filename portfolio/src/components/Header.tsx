@@ -38,8 +38,17 @@ export function Header() {
 
   return (
     <>
-      <header className="sticky top-0 z-40 backdrop-blur-md bg-bg/80 border-b border-border/50">
-        <nav className="max-w-content mx-auto px-6 py-4">
+      <header className="sticky top-0 z-40 pb-8">
+        {/* Fading blur overlay - extends beyond header */}
+        <div
+          className="absolute inset-x-0 top-0 h-32 backdrop-blur-md pointer-events-none -z-10"
+          style={{
+            maskImage: 'linear-gradient(to bottom, black 40%, transparent 100%)',
+            WebkitMaskImage: 'linear-gradient(to bottom, black 40%, transparent 100%)',
+            background: 'linear-gradient(to bottom, black 0%, transparent 100%)'
+          }}
+        />
+        <nav className="relative z-10 max-w-content mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <Link
               href="/"
