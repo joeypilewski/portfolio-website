@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 
 interface ContactModalProps {
     isOpen: boolean;
@@ -8,26 +9,39 @@ interface ContactModalProps {
 }
 
 export function ContactModal({ isOpen, onClose }: ContactModalProps) {
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+        setMounted(true);
+    }, []);
+
     useEffect(() => {
         const handleEscape = (e: KeyboardEvent) => {
             if (e.key === "Escape") onClose();
         };
         if (isOpen) {
+            // Calculate scrollbar width to prevent layout shift
+            const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
             document.addEventListener("keydown", handleEscape);
             document.body.style.overflow = "hidden";
+            document.body.style.paddingRight = `${scrollbarWidth}px`;
         }
         return () => {
             document.removeEventListener("keydown", handleEscape);
             document.body.style.overflow = "unset";
+            document.body.style.paddingRight = "0px";
         };
     }, [isOpen, onClose]);
 
-    if (!isOpen) return null;
+    if (!isOpen || !mounted) return null;
 
-    return (
+    const modalContent = (
         <div
-            className="fixed inset-0 z-50 flex items-center justify-center"
+            className="fixed inset-0 z-[9999] flex items-center justify-center"
             onClick={onClose}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="contact-modal-title"
         >
             {/* Backdrop */}
             <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" />
@@ -47,7 +61,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
                     </svg>
                 </button>
 
-                <h2 className="text-2xl font-bold text-white mb-6">Get in Touch</h2>
+                <h2 id="contact-modal-title" className="text-2xl font-bold text-white mb-6">Get in Touch</h2>
 
                 <div className="space-y-6">
                     <div className="flex items-center gap-4">
@@ -102,4 +116,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
             </div>
         </div>
     );
+
+    return createPortal(modalContent, document.body);
 }
+
