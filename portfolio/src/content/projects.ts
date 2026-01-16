@@ -17,12 +17,12 @@ export const projects: Project[] = [
   {
     slug: "receipt-right",
     title: "Receipt Right",
-    tagline: "Who-got-what, without the math.",
+    tagline: "Group payments, simplified.",
     summary:
-      "iOS app that parses receipts via OpenAI, assigns items to friends, and generates Venmo requests. Structured JSON outputs ensure reliable parsing.",
+      "iOS app using OpenAI vision models to parse receipts, split items among users, and generate Venmo requests. Reduces group travel and dining friction from spreadsheets to seconds.",
     bullets: [
-      "Swift/SwiftUI + OpenAI structured outputs",
-      "Handles shared items, tax & tips",
+      "Swift/SwiftUI with OpenAI structured outputs for reliable parsing",
+      "Handles shared items, tax, tips, and custom splits",
       "One-tap Venmo request generation",
     ],
     tags: ["Swift", "SwiftUI", "OpenAI API"],
@@ -34,15 +34,16 @@ export const projects: Project[] = [
   {
     slug: "agentic-trader",
     title: "Agentic Trader",
-    tagline: "AI trading agent with guardrails.",
+    tagline: "Autonomous trading with guardrails.",
     summary:
-      "Python agent using OpenAI Agents SDK and IBKR paper trading. Researches tickers, sizes positions, and executes trades within defined risk limits.",
+      "Autonomous trading agent that uses OpenAI Agents SDK and Interactive Brokers API. Engineered complex tool-calling logic to automate market research, risk assessment, and order execution within defined risk limits.",
     bullets: [
-      "Tool calling for market data & research",
-      "Enforces sizing/exposure constraints",
-      "Fully auditable decision logs",
+      "OpenAI Agents SDK with custom tool-calling logic",
+      "Interactive Brokers paper trading API integration",
+      "Automated market research and position sizing",
+      "Risk constraints and fully auditable decision logs",
     ],
-    tags: ["Python", "OpenAI Agents", "IBKR API"],
+    tags: ["Python", "OpenAI Agents SDK", "IBKR API"],
     links: {
       github: "https://github.com/joeypilewski/agentic-trader",
     },
@@ -50,30 +51,32 @@ export const projects: Project[] = [
   },
   {
     slug: "rsm-validation-ip",
-    title: "RSM NetSuite Validation IP",
-    tagline: "Custom work → reusable accelerators.",
+    title: "RSM NetSuite Accelerators",
+    tagline: "Custom solutions → standardized products.",
     summary:
-      "Productized Vendor Master Validation and Inventory Status Enforcement logic into accelerators, cutting dev hours and improving data integrity across client projects.",
+      "Developed validation tools (Vendor Master Validation, Inventory Status Enforcement) that RSM adopted as standard 'Accelerator' products. Saved 200+ consultant hours across a dozen implementations (~$50K in efficiency gains).",
     bullets: [
-      "Reduced custom dev hours ~25–40%",
-      "Improved first-time-right data quality",
-      "Encapsulated lessons into reusable IP",
+      "Identified repeating pain points across client projects",
+      "Productized solutions into reusable accelerators",
+      "Eliminated multi-round handoffs with real-time validation",
+      "Now deployed as standard tooling across RSM consulting teams",
     ],
-    tags: ["NetSuite", "SuiteFlow", "Controls"],
+    tags: ["NetSuite", "SuiteFlow", "Product Development", "Process Automation"],
     featured: true,
   },
   {
     slug: "embroidery-store",
     title: "Online Embroidery Store",
-    tagline: "Side hustle → system.",
+    tagline: "Zero to $200K in year one.",
     summary:
-      "Built and scaled an e-commerce embroidery store to ~$200K annual revenue, 3,500+ orders, and 5.0-star rating by engineering the order-to-ship process.",
+      "Scaled e-commerce embroidery store from zero to $200K revenue in year one with 3,500+ orders and 5.0-star rating. Engineered end-to-end order-to-ship process integrating Shopify, Etsy, inventory systems, and outsourcing partners.",
     bullets: [
-      "Order routing & vendor workflows",
-      "Excel/Power Query dashboards for demand & margin",
-      "Balanced CX, cost & fulfillment complexity",
+      "Designed reliable workflows across multiple platforms and vendors",
+      "Built custom Excel/Power Query dashboards for demand planning",
+      "Maintained 5.0-star rating through quality control and rapid response",
+      "Balanced customer experience, cost optimization, and fulfillment complexity",
     ],
-    tags: ["Shopify", "Ops Design", "Power Query"],
+    tags: ["Shopify", "Etsy", "Operations Design", "Power Query", "Systems Integration"],
     links: {
       demo: "https://thestylesshopco.com",
     },

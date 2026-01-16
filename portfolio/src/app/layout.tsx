@@ -11,19 +11,20 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "Joey Pilewski · Ops & Systems Analyst",
+    default: "Joey Pilewski · Technical Solutions Architect",
     template: "%s | Joey Pilewski",
   },
   description:
-    "Ops & Systems Analyst specializing in NetSuite ERP, operations, and AI-powered tooling. I turn messy workflows into reliable systems.",
+    "Technical Solutions Architect designing systems that bridge business operations and technical solutions. Specializing in NetSuite ERP, AI-augmented development, and enterprise strategy.",
   keywords: [
+    "Technical Solutions Architect",
     "NetSuite",
     "ERP",
-    "Operations",
-    "Systems Analyst",
-    "AI",
-    "Automation",
-    "Consulting",
+    "Business Systems",
+    "AI Development",
+    "OpenAI API",
+    "Operations Architecture",
+    "Enterprise Strategy",
     "Joey Pilewski",
     "Long Island",
   ],
@@ -38,15 +39,15 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://joeypilewski.com",
     siteName: "Joey Pilewski",
-    title: "Joey Pilewski · Ops & Systems Analyst",
+    title: "Joey Pilewski · Technical Solutions Architect",
     description:
-      "Ops & Systems Analyst specializing in NetSuite ERP, operations, and AI-powered tooling.",
+      "Technical Solutions Architect designing systems that bridge business operations and technical solutions. Specializing in NetSuite ERP, AI-augmented development, and enterprise strategy.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Joey Pilewski · Ops & Systems Analyst",
+    title: "Joey Pilewski · Technical Solutions Architect",
     description:
-      "Ops & Systems Analyst specializing in NetSuite ERP, operations, and AI-powered tooling.",
+      "Technical Solutions Architect designing systems that bridge business operations and technical solutions.",
   },
   robots: {
     index: true,

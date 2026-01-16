@@ -17,10 +17,10 @@ export function ProjectCard({ project }: ProjectCardProps) {
 
       <div className="flex-1 space-y-4">
         <div>
-          <h3 className="text-xl font-bold text-white group-hover:text-accent transition-colors">
+          <h3 className="text-2xl font-bold text-white group-hover:text-accent transition-colors">
             {project.title}
           </h3>
-          <p className="mt-2 text-sm text-text-muted leading-relaxed">
+          <p className="mt-2 text-base text-text-muted leading-relaxed">
             {project.summary}
           </p>
         </div>

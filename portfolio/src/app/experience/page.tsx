@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { ExperienceTimeline } from "@/components";
 import { experiences } from "@/content/experience";
 
@@ -11,6 +12,14 @@ export default function ExperiencePage() {
                 </p>
             </div>
             <ExperienceTimeline data={experiences} />
+            <div className="pt-8">
+                <Link
+                    href="/"
+                    className="text-text-muted hover:text-white transition-colors"
+                >
+                    ← Back to Home
+                </Link>
+            </div>
         </div>
     );
 }
