@@ -7,10 +7,18 @@ import { ContactModal } from "./ContactModal";
 export function Hero() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  const scrollToExperience = (e: React.MouseEvent) => {
+    e.preventDefault();
+    const element = document.getElementById('experience');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <>
-      <section className="pt-20 pb-12">
-        <div className="flex flex-col items-start max-w-2xl space-y-8">
+      <section className="pt-8 md:pt-20 pb-12">
+        <div className="flex flex-col items-start max-w-2xl space-y-6 md:space-y-8">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 text-xs font-medium text-accent">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
@@ -28,17 +36,20 @@ export function Hero() {
               </span>
             </h1>
             <p className="text-xl text-text-muted max-w-lg leading-relaxed">
-              Designs and builds systems bridging operations and technical solutions. Leveraging AI-augmented development and enterprise strategy to deliver scalable, reliable outcomes.
+              Bridging the gap between complex operations and technical systems. Leveraging AI-augmented development and enterprise strategy to drive scalability and reliability.
             </p>
           </div>
 
-          <div className="flex flex-row flex-wrap gap-3 sm:gap-4 pt-4">
-            <Link href="#experience" className="px-4 sm:px-6 py-3 rounded-full bg-white text-black font-semibold hover:bg-gray-200 transition-colors text-sm sm:text-base whitespace-nowrap">
+          <div className="flex flex-row gap-2 sm:gap-4 pt-4 w-full">
+            <button
+              onClick={scrollToExperience}
+              className="flex-1 px-1 sm:px-6 py-3 rounded-full bg-white text-black font-semibold hover:bg-gray-200 transition-colors text-sm sm:text-lg whitespace-nowrap text-center"
+            >
               View Work
-            </Link>
+            </button>
             <button
               onClick={() => setIsModalOpen(true)}
-              className="px-4 sm:px-6 py-3 rounded-full border border-white/10 bg-white/5 text-white hover:bg-white/10 transition-colors text-sm sm:text-base whitespace-nowrap"
+              className="flex-1 px-1 sm:px-6 py-3 rounded-full border border-white/10 bg-white/5 text-white hover:bg-white/10 transition-colors text-sm sm:text-lg whitespace-nowrap text-center"
             >
               Contact Me
             </button>
@@ -46,16 +57,16 @@ export function Hero() {
               href="/resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-4 sm:px-6 py-3 rounded-full border border-white/10 bg-white/5 text-white hover:bg-white/10 transition-colors flex items-center gap-2 text-sm sm:text-base whitespace-nowrap"
+              className="flex-1 px-1 sm:px-6 py-3 rounded-full border border-white/10 bg-white/5 text-white hover:bg-white/10 transition-colors flex items-center justify-center gap-1 sm:gap-2 text-sm sm:text-lg whitespace-nowrap"
             >
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-3 h-3 sm:w-4 sm:h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
               </svg>
               Resume
             </a>
           </div>
 
-          <div className="pt-8 flex flex-wrap items-center gap-6 text-sm text-text-muted">
+          <div className="pt-4 md:pt-8 flex flex-wrap items-center gap-6 text-sm text-text-muted">
             <span className="flex items-center gap-2">
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
               Technical Solutions Architect

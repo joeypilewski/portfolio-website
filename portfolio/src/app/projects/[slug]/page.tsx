@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { getProjectBySlug, projects } from "@/content/projects";
 import type { Metadata } from "next";
 
@@ -114,6 +115,23 @@ export default async function ProjectPage({ params }: Props) {
                             className="px-6 py-3 rounded-full border border-white/10 bg-white/5 text-white hover:bg-white/10 transition-colors flex items-center gap-2"
                         >
                             App Store ↗
+                        </a>
+                    )}
+                    {project.links.testflight && (
+                        <a
+                            href={project.links.testflight}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="px-6 py-3 rounded-full border border-white/10 bg-white/5 text-white hover:bg-white/10 transition-colors flex items-center gap-3"
+                        >
+                            <Image
+                                src="/testflight-icon.webp"
+                                alt="TestFlight"
+                                width={20}
+                                height={20}
+                                className="object-contain rounded-[4px]"
+                            />
+                            Join TestFlight
                         </a>
                     )}
                 </section>

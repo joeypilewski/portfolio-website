@@ -27,9 +27,6 @@ export function ExperienceTimeline({ data }: ExperienceTimelineProps) {
                         </div>
 
                         <div className="pt-2">
-                            <p className="text-text-muted leading-relaxed text-base mb-4">
-                                {item.summary}
-                            </p>
                             <ul className="space-y-2">
                                 {item.bullets.map((bullet, i) => (
                                     <li key={i} className="text-base text-gray-400 flex items-start gap-3">

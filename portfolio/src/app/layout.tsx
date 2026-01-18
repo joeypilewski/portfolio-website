@@ -68,7 +68,7 @@ export default function RootLayout({
     <html lang="en" className={inter.variable}>
       <body className="font-sans">
         <Header />
-        <main className="max-w-content mx-auto px-6 py-8">{children}</main>
+        <main className="max-w-content mx-auto px-6 pt-4 md:pt-8 pb-8">{children}</main>
         <div className="max-w-content mx-auto px-6">
           <Footer />
         </div>

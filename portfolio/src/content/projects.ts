@@ -9,6 +9,7 @@ export interface Project {
     github?: string;
     demo?: string;
     appstore?: string;
+    testflight?: string;
   };
   featured: boolean;
 }
@@ -27,7 +28,7 @@ export const projects: Project[] = [
     ],
     tags: ["Swift", "SwiftUI", "OpenAI API"],
     links: {
-      github: "https://github.com/joeypilewski/receipt-right",
+      testflight: "https://testflight.apple.com/join/Zfpad8B5",
     },
     featured: true,
   },
