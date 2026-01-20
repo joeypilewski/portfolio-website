@@ -34,7 +34,7 @@ export default function Home() {
               </div>
 
               <div>
-                <h2 className="text-3xl md:text-4xl font-bold text-white mb-3 group-hover:text-accent transition-colors duration-300">
+                <h2 className="text-3xl md:text-4xl font-bold text-white mb-3 group-hover:text-accent transition-colors duration-200">
                   {receiptRight.title}
                 </h2>
                 <p className="text-xl text-accent font-medium mb-4">

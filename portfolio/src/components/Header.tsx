@@ -95,15 +95,15 @@ export function Header() {
       >
         <div className="w-5 flex flex-col gap-1.5">
           <span
-            className={`block h-0.5 bg-current transition-all duration-300 origin-center ${isMenuOpen ? "rotate-45 translate-y-2" : ""
+            className={`block h-0.5 bg-current transition-all duration-200 origin-center ${isMenuOpen ? "rotate-45 translate-y-2" : ""
               }`}
           />
           <span
-            className={`block h-0.5 bg-current transition-all duration-300 ${isMenuOpen ? "opacity-0 scale-0" : ""
+            className={`block h-0.5 bg-current transition-all duration-200 ${isMenuOpen ? "opacity-0 scale-0" : ""
               }`}
           />
           <span
-            className={`block h-0.5 bg-current transition-all duration-300 origin-center ${isMenuOpen ? "-rotate-45 -translate-y-2" : ""
+            className={`block h-0.5 bg-current transition-all duration-200 origin-center ${isMenuOpen ? "-rotate-45 -translate-y-2" : ""
               }`}
           />
         </div>
@@ -111,7 +111,7 @@ export function Header() {
 
       {/* Mobile Menu Overlay */}
       <div
-        className={`fixed inset-0 z-header-bg md:hidden transition-all duration-300 ${isMenuOpen ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"
+        className={`fixed inset-0 z-header-bg md:hidden transition-all duration-200 ${isMenuOpen ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"
           }`}
         style={{ backgroundColor: "#0a0a0a" }}
         aria-hidden={!isMenuOpen}
@@ -129,7 +129,7 @@ export function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`text-3xl font-semibold transition-all duration-300 ${isActive ? "text-accent" : "text-white hover:text-accent"
+                className={`text-3xl font-semibold transition-all duration-200 ${isActive ? "text-accent" : "text-white hover:text-accent"
                   }`}
                 style={{
                   transitionDelay: isMenuOpen ? `${index * 50}ms` : "0ms",
