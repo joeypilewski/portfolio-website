@@ -29,7 +29,7 @@ export const projects: Project[] = [
     title: "Receipt Right",
     tagline: "Group payments, simplified.",
     summary:
-      "iOS app using OpenAI vision API to itemize receipts and split bills through Venmo. Built to solve the friction of group travel and dining where manual splitting creates awkwardness and delays.",
+      "iOS app using OpenAI vision API to itemize receipts and split bills through Venmo. No more spreadsheets.",
     bullets: [
       "Snap a photo of any receipt and OpenAI vision API automatically itemizes every line item, tax, and tip.",
       "Handles shared items, custom splits, and complex scenarios like uneven distribution across multiple people.",
@@ -59,7 +59,7 @@ export const projects: Project[] = [
     title: "Agentic Trader",
     tagline: "Autonomous market analysis and execution.",
     summary:
-      "AI trading agent that researches markets, assesses risk, and executes trades using OpenAI Agents SDK. An exploration of agentic AI capabilities in financial markets with built-in safety guardrails.",
+      "AI trading agent that researches, assesses risk, and executes trades using OpenAI Agents SDK.",
     bullets: [
       "Autonomous agent conducts market research, analyzes risk factors, and determines optimal position sizing.",
       "Custom tool-calling logic enables the agent to access market data, execute trades, and maintain decision logs.",
@@ -89,7 +89,7 @@ export const projects: Project[] = [
     title: "Supplier Quality Toolkit",
     tagline: "From custom tool to commercial product.",
     summary:
-      "NetSuite procurement validation system that blocks problematic purchase orders before they're created. Built to solve recurring client pain points, then productized by RSM as commercial IP sold to new clients.",
+      "NetSuite procurement validation that blocks bad purchase orders. RSM productized it as commercial IP.",
     bullets: [
       "Automatically blocks purchase orders from unapproved suppliers or with incomplete product records.",
       "Prevents costly procurement errors from manual entry, data imports, and automated workflows.",
@@ -116,7 +116,7 @@ export const projects: Project[] = [
     title: "Inventory Status Validations",
     tagline: "Compliance automation, productized.",
     summary:
-      "NetSuite inventory control system that prevents restricted stock from entering production and fulfillment workflows. Critical for regulated industries; valuable enough that RSM turned it into sellable IP.",
+      "Blocks quarantined inventory from production and shipping. Built for compliance; sold by RSM as IP.",
     bullets: [
       "Blocks quarantined, on-hold, or restricted inventory from being used in manufacturing and shipping.",
       "Configurable rules enforce inventory status restrictions consistently across UI, imports, and automation.",
@@ -143,7 +143,7 @@ export const projects: Project[] = [
     title: "Online Embroidery Store",
     tagline: "Designed end-to-end, grew to $200K.",
     summary:
-      "Scaled custom embroidery business from zero to $200K in year one with 3,500+ orders and a 5.0-star rating. Success driven by operational excellence, systems thinking, and relentless focus on customer experience.",
+      "Grew custom embroidery business to $200K in year one with 3,500+ orders and a 5.0-star rating.",
     bullets: [
       "Designed end-to-end order-to-ship workflows integrating Shopify, Etsy, inventory systems, ClickUp, and outsourcing partners.",
       "Built custom Excel and Power Query dashboards to analyze sales trends, profit margins, and demand planning.",
