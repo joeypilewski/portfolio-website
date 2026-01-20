@@ -33,7 +33,7 @@ export function ProjectCard({ project, source = "projects" }: ProjectCardProps) 
           {project.tags.slice(0, 3).map((tag) => (
             <span
               key={tag}
-              className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-white/5 text-gray-300 border border-white/5"
+              className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-white/10 text-white border border-white/20"
             >
               {tag}
             </span>

@@ -19,7 +19,7 @@ export function Hero() {
     <>
       <section className="pt-8 md:pt-20 pb-12">
         <div className="flex flex-col items-start max-w-2xl space-y-6 md:space-y-8">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 text-xs font-medium text-accent">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 text-xs font-medium text-white">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
@@ -40,30 +40,30 @@ export function Hero() {
             </p>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-4 w-full sm:w-auto">
+          <div className="flex flex-row gap-2 sm:gap-4 pt-4 w-full sm:w-auto">
             <button
               onClick={scrollToExperience}
-              className="px-6 py-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white font-semibold shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:bg-white/20 hover:border-white/30 hover:shadow-[0_0_30px_rgba(255,255,255,0.2)] transition-all duration-300"
+              className="group relative flex-1 sm:flex-initial sm:min-w-[140px] px-3 sm:px-6 py-2.5 sm:py-3 rounded-full bg-gradient-to-r from-accent/20 to-indigo-500/20 backdrop-blur-md text-white text-sm sm:text-base font-semibold overflow-hidden transition-all duration-300 before:absolute before:inset-0 before:rounded-full before:p-[2px] before:bg-gradient-to-r before:from-accent before:to-indigo-500 before:-z-10 before:transition-all before:duration-300 hover:shadow-[0_0_40px_rgba(139,92,246,0.4)] hover:scale-105 flex items-center justify-center"
             >
-              View Work
+              <span className="relative z-10 whitespace-nowrap">View Work</span>
             </button>
             <button
               onClick={() => setIsModalOpen(true)}
-              className="px-6 py-3 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 text-white/90 font-medium hover:bg-white/10 hover:border-white/20 hover:shadow-[0_0_15px_rgba(255,255,255,0.1)] transition-all duration-300"
+              className="group relative flex-1 sm:flex-initial sm:min-w-[140px] px-3 sm:px-6 py-2.5 sm:py-3 rounded-full bg-white/5 backdrop-blur-sm border border-white/20 text-white/90 text-sm sm:text-base font-medium hover:bg-white/10 hover:border-accent/50 hover:shadow-[0_0_25px_rgba(139,92,246,0.3)] hover:scale-105 transition-all duration-300 flex items-center justify-center"
             >
-              Contact Me
+              <span className="relative z-10 whitespace-nowrap">Contact</span>
             </button>
             <a
               href="/resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               download="Joey_Pilewski_Resume.pdf"
-              className="px-6 py-3 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 text-white/90 font-medium hover:bg-white/10 hover:border-white/20 hover:shadow-[0_0_15px_rgba(255,255,255,0.1)] transition-all duration-300 flex items-center justify-center gap-2"
+              className="group relative flex-1 sm:flex-initial sm:min-w-[140px] px-3 sm:px-6 py-2.5 sm:py-3 rounded-full bg-white/5 backdrop-blur-sm border border-white/20 text-white/90 text-sm sm:text-base font-medium hover:bg-white/10 hover:border-accent/50 hover:shadow-[0_0_25px_rgba(139,92,246,0.3)] hover:scale-105 transition-all duration-300 flex items-center justify-center gap-1.5 sm:gap-2"
             >
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
               </svg>
-              Resume
+              <span className="relative z-10 whitespace-nowrap">Resume</span>
             </a>
           </div>
 
