@@ -15,9 +15,10 @@ export default function ExperiencePage() {
             <div className="pt-8">
                 <Link
                     href="/"
-                    className="text-text-muted hover:text-white transition-colors"
+                    className="inline-flex items-center gap-2 text-text-muted hover:text-white transition-colors group/link"
                 >
-                    ← Back to Home
+                    <span className="transform group-hover/link:-translate-x-1 transition-transform">←</span>
+                    Back to Home
                 </Link>
             </div>
         </div>

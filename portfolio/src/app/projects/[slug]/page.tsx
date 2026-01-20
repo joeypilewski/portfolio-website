@@ -135,11 +135,9 @@ export default async function ProjectPage({ params, searchParams }: Props) {
             <div className="pt-8">
                 <Link
                     href={backUrl}
-                    className="inline-flex items-center gap-2 text-text-muted hover:text-white transition-colors"
+                    className="inline-flex items-center gap-2 text-text-muted hover:text-white transition-colors group/link"
                 >
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
-                    </svg>
+                    <span className="transform group-hover/link:-translate-x-1 transition-transform">←</span>
                     {backText}
                 </Link>
             </div>

@@ -19,12 +19,12 @@ export function Hero() {
     <>
       <section className="pt-8 md:pt-20 pb-12">
         <div className="flex flex-col items-start max-w-2xl space-y-6 md:space-y-8">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 text-xs font-medium text-white">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-accent/20 bg-accent/10 text-xs font-medium text-white">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
             </span>
-            Available for new opportunities
+            Available for New Opportunities
           </div>
 
           <div className="space-y-4">

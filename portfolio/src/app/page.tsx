@@ -21,8 +21,11 @@ export default function Home() {
           >
             <div className="relative space-y-6">
               <div className="flex items-center justify-between">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/20 border border-accent/30">
-                  <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 border border-accent/20">
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
+                  </span>
                   <span className="text-xs font-medium text-white">Featured Project</span>
                 </div>
                 <div className="opacity-0 group-hover:opacity-100 transition-opacity transform translate-x-2 group-hover:translate-x-0 duration-300">
@@ -43,7 +46,7 @@ export default function Home() {
               </div>
 
               <div className="flex flex-wrap gap-2">
-                {receiptRight.tags.map((tag) => (
+                {receiptRight.tags.slice(0, 3).map((tag) => (
                   <span
                     key={tag}
                     className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-white/10 text-white border border-white/20"
@@ -64,7 +67,14 @@ export default function Home() {
 
       <section id="projects" className="scroll-mt-24">
         <div className="flex items-center justify-between mb-10">
-          <h2 className="text-3xl font-bold text-white">Selected Work</h2>
+          <h2 className="text-3xl font-bold text-white">Projects</h2>
+          <Link
+            href="/projects"
+            className="inline-flex items-center gap-2 text-text-muted hover:text-white transition-colors group/link"
+          >
+            View All
+            <span className="transform group-hover/link:translate-x-1 transition-transform">→</span>
+          </Link>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {featuredProjects.map((project) => (
