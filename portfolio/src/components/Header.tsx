@@ -39,7 +39,7 @@ export function Header() {
 
   return (
     <>
-      <header className="sticky top-0 z-40 pb-8">
+      <header className="sticky top-0 z-header pb-8">
         {/* Fading blur overlay - extends beyond header */}
         <div
           className="absolute inset-x-0 top-0 h-32 backdrop-blur-md pointer-events-none -z-10"
@@ -89,7 +89,7 @@ export function Header() {
       {/* Mobile Menu Button - Fixed position so it's always on top */}
       <button
         onClick={() => setIsMenuOpen(!isMenuOpen)}
-        className="md:hidden fixed top-4 right-6 z-[60] w-10 h-10 flex items-center justify-center text-text-muted hover:text-white transition-colors"
+        className="md:hidden fixed top-4 right-6 z-menu w-10 h-10 flex items-center justify-center text-text-muted hover:text-white transition-colors"
         aria-label={isMenuOpen ? "Close menu" : "Open menu"}
         aria-expanded={isMenuOpen}
       >
@@ -111,7 +111,7 @@ export function Header() {
 
       {/* Mobile Menu Overlay */}
       <div
-        className={`fixed inset-0 z-50 md:hidden transition-all duration-300 ${isMenuOpen ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"
+        className={`fixed inset-0 z-header-bg md:hidden transition-all duration-300 ${isMenuOpen ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"
           }`}
         style={{ backgroundColor: "#0a0a0a" }}
         aria-hidden={!isMenuOpen}

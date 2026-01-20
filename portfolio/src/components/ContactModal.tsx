@@ -38,14 +38,14 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
 
     const modalContent = (
         <div
-            className="fixed inset-0 z-[9999] flex items-center justify-center"
+            className="fixed inset-0 z-modal flex items-center justify-center"
             onClick={onClose}
             role="dialog"
             aria-modal="true"
             aria-labelledby="contact-modal-title"
         >
             {/* Backdrop */}
-            <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" />
+            <div className="absolute inset-0 bg-black/80 backdrop-blur-sm z-modal-backdrop" />
 
             {/* Modal */}
             <div

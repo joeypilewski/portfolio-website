@@ -21,6 +21,9 @@ export function ProjectCard({ project, source = "projects" }: ProjectCardProps) 
           <h3 className="text-2xl font-bold text-white group-hover:text-accent transition-colors">
             {project.title}
           </h3>
+          <p className="mt-1 text-sm font-medium text-accent">
+            {project.tagline}
+          </p>
           <p className="mt-2 text-base text-text-muted leading-relaxed">
             {project.summary}
           </p>

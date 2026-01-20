@@ -51,6 +51,13 @@ const config: Config = {
         "gradient-btn-primary": "linear-gradient(135deg, #6366f1 0%, #4f46e5 100%)", // Indigo gradient
         "gradient-pill-dot": "linear-gradient(135deg, #a5b4fc, #6366f1)",
       },
+      zIndex: {
+        "header": "40",
+        "header-bg": "50",
+        "menu": "60",
+        "modal-backdrop": "9998",
+        "modal": "9999",
+      },
     },
   },
   plugins: [],

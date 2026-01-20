@@ -121,7 +121,7 @@ export default async function ProjectPage({ params, searchParams }: Props) {
                         >
                             <Image
                                 src="/testflight-icon.webp"
-                                alt="TestFlight"
+                                alt="Apple TestFlight beta testing program icon"
                                 width={20}
                                 height={20}
                                 className="object-contain rounded-[4px]"
