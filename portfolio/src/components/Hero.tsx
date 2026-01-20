@@ -29,14 +29,14 @@ export function Hero() {
 
           <div className="space-y-4">
             <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white leading-[1.1]">
-              Building intelligent
+              Building solutions
               <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-indigo-500">
-                business systems.
+                worth selling.
               </span>
             </h1>
             <p className="text-xl text-text-muted max-w-lg leading-relaxed">
-              Bridging the gap between complex operations and technical systems. Leveraging AI-augmented development and enterprise strategy to drive scalability and reliability.
+              Turning operational problems into technical solutions. Three years of ERP consulting meets AI-augmented development to ship tools that scale.
             </p>
           </div>
 

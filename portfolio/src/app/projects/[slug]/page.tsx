@@ -37,7 +37,7 @@ export default async function ProjectPage({ params, searchParams }: Props) {
 
 
     return (
-        <div className="space-y-12 max-w-3xl">
+        <div className="space-y-12 max-w-4xl">
             <header className="space-y-4">
                 <div className="flex flex-wrap gap-2">
                     {project.tags.map((tag) => (
@@ -108,23 +108,68 @@ export default async function ProjectPage({ params, searchParams }: Props) {
                 </section>
             )}
 
-            <section className="space-y-6">
-                <div className="p-6 rounded-2xl bg-white/5 border border-white/10">
-                    <h2 className="text-lg font-semibold text-white mb-4">Overview</h2>
+            <section className="p-8 rounded-2xl bg-white/5 border border-white/10 space-y-10">
+                {/* Overview */}
+                <div>
+                    <h2 className="text-xl font-bold text-white mb-3">Overview</h2>
                     <p className="text-text-muted leading-relaxed">{project.summary}</p>
                 </div>
 
-                <div className="p-6 rounded-2xl bg-white/5 border border-white/10">
-                    <h2 className="text-lg font-semibold text-white mb-4">Key Features</h2>
-                    <ul className="space-y-3">
-                        {project.bullets.map((bullet, i) => (
-                            <li key={i} className="flex items-start gap-3 text-text-muted">
-                                <span className="mt-2 w-1.5 h-1.5 rounded-full bg-accent shrink-0" />
-                                {bullet}
-                            </li>
-                        ))}
-                    </ul>
-                </div>
+                {project.details ? (
+                    <>
+                        {/* Problem */}
+                        <div className="border-t border-white/10 pt-10">
+                            <h2 className="text-xl font-bold text-white mb-3">Problem</h2>
+                            <p className="text-text-muted leading-relaxed">{project.details.problem}</p>
+                        </div>
+
+                        {/* Constraints */}
+                        <div>
+                            <h2 className="text-xl font-bold text-white mb-3">Constraints</h2>
+                            <p className="text-text-muted leading-relaxed">{project.details.constraints}</p>
+                        </div>
+
+                        {/* Approach */}
+                        <div className="border-t border-white/10 pt-10">
+                            <h2 className="text-xl font-bold text-white mb-4">Approach</h2>
+                            <ul className="space-y-3">
+                                {project.details.approach.map((item, i) => (
+                                    <li key={i} className="flex items-start gap-3 text-text-muted leading-relaxed">
+                                        <span className="mt-2 w-1.5 h-1.5 rounded-full bg-accent shrink-0" />
+                                        {item}
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+
+                        {/* Result */}
+                        <div>
+                            <h2 className="text-xl font-bold text-white mb-3">Result</h2>
+                            <p className="text-text-muted leading-relaxed">{project.details.result}</p>
+                        </div>
+
+                        {/* What I'd Do Next */}
+                        {project.details.nextSteps && (
+                            <div className="border-t border-white/10 pt-10">
+                                <h2 className="text-xl font-bold text-white mb-3">What I'd Do Next</h2>
+                                <p className="text-text-muted leading-relaxed">{project.details.nextSteps}</p>
+                            </div>
+                        )}
+                    </>
+                ) : (
+                    /* Fallback for projects without details */
+                    <div className="border-t border-white/10 pt-10">
+                        <h2 className="text-xl font-bold text-white mb-4">Key Features</h2>
+                        <ul className="space-y-3">
+                            {project.bullets.map((bullet, i) => (
+                                <li key={i} className="flex items-start gap-3 text-text-muted leading-relaxed">
+                                    <span className="mt-2 w-1.5 h-1.5 rounded-full bg-accent shrink-0" />
+                                    {bullet}
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                )}
             </section>
 
         </div>

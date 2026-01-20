@@ -6,8 +6,8 @@ import Link from "next/link";
 import Image from "next/image";
 
 export default function Home() {
-  const featuredProjects = projects.filter(p => p.featured);
   const receiptRight = getProjectBySlug("receipt-right");
+  const featuredProjects = projects.filter(p => p.featured && p.slug !== "receipt-right");
 
   return (
     <div className="space-y-28">
