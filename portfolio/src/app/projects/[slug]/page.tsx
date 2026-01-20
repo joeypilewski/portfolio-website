@@ -43,10 +43,7 @@ export default async function ProjectPage({ params, searchParams }: Props) {
             <header className="space-y-4">
                 <div className="flex flex-wrap gap-2">
                     {project.tags.map((tag) => (
-                        <span
-                            key={tag}
-                            className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-white/10 text-white border border-white/20"
-                        >
+                        <span key={tag} className="badge-tag !bg-white/10 !text-white !border-white/20">
                             {tag}
                         </span>
                     ))}
@@ -75,7 +72,7 @@ export default async function ProjectPage({ params, searchParams }: Props) {
                             href={project.links.testflight}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="group relative px-6 py-3 rounded-full bg-gradient-to-r from-accent/20 to-indigo-500/20 backdrop-blur-md text-white font-semibold overflow-hidden transition-all duration-300 before:absolute before:inset-0 before:rounded-full before:p-[2px] before:bg-gradient-to-r before:from-accent before:to-indigo-500 before:-z-10 before:transition-all before:duration-300 hover:shadow-[0_0_40px_rgba(139,92,246,0.4)] hover:scale-105 flex items-center gap-3"
+                            className="group relative px-6 py-3 rounded-full bg-white/5 backdrop-blur-sm border border-white/20 text-white/90 font-medium hover:bg-white/10 hover:border-accent/50 hover:shadow-[0_0_25px_rgba(139,92,246,0.3)] hover:scale-105 transition-all duration-300 flex items-center gap-3"
                         >
                             <Image
                                 src="/testflight-icon.webp"

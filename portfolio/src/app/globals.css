@@ -48,15 +48,29 @@
     @apply bg-gradient-card rounded-lg border border-border shadow-soft p-6;
   }
 
-  /* Pill badge */
-  .pill {
-    @apply inline-flex items-center gap-2 px-3.5 py-1 rounded-full;
-    @apply bg-card/85 border border-slate-400/30;
-    @apply text-sm text-text-muted;
+  /* New Consolidated Pill Styles */
+  .badge-status {
+    @apply inline-flex items-center gap-2 px-3 py-1 rounded-full border border-accent/20 bg-accent/10 text-[10px] sm:text-xs font-bold uppercase tracking-wider text-white;
   }
 
-  .pill-dot {
-    @apply w-2 h-2 rounded-full bg-gradient-pill-dot shadow-glow;
+  .badge-status-dot {
+    @apply relative flex h-2 w-2;
+  }
+
+  .badge-status-dot-inner {
+    @apply relative inline-flex rounded-full h-2 w-2 bg-accent;
+  }
+
+  .badge-status-dot-ping {
+    @apply animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75;
+  }
+
+  .badge-tag {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-[11px] sm:text-xs font-medium bg-white/[0.05] border border-white/10 text-text-muted transition-all duration-200 ease-out;
+  }
+
+  .badge-tag:hover {
+    @apply bg-accent/10 border-accent/20 text-white;
   }
 
   /* Buttons */

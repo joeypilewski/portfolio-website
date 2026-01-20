@@ -17,18 +17,18 @@ export default function Home() {
         <section className="scroll-mt-24">
           <Link
             href={`/projects/${receiptRight.slug}?ref=home`}
-            className="group relative block p-8 md:p-10 rounded-2xl bg-gradient-to-br from-accent/20 via-purple-500/10 to-indigo-500/20 border border-accent/30 overflow-hidden hover:border-accent/50 hover:shadow-[0_0_60px_rgba(139,92,246,0.3)] transition-all duration-500"
+            className="group relative block p-8 md:p-10 rounded-2xl bg-gradient-to-br from-accent/20 via-purple-500/10 to-indigo-500/20 border border-accent/30 overflow-hidden hover:border-accent/50 hover:shadow-[0_0_60px_rgba(139,92,246,0.3)] transition-all duration-200 ease-out"
           >
             <div className="relative space-y-6">
               <div className="flex items-center justify-between">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 border border-accent/20">
-                  <span className="relative flex h-2 w-2">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
+                <div className="badge-status">
+                  <span className="badge-status-dot">
+                    <span className="badge-status-dot-ping"></span>
+                    <span className="badge-status-dot-inner"></span>
                   </span>
-                  <span className="text-xs font-medium text-white">Featured Project</span>
+                  Featured Project
                 </div>
-                <div className="opacity-0 group-hover:opacity-100 transition-opacity transform translate-x-2 group-hover:translate-x-0 duration-300">
+                <div className="opacity-0 group-hover:opacity-100 transition-opacity transform translate-x-2 group-hover:translate-x-0">
                   <span className="text-white text-xl">→</span>
                 </div>
               </div>
@@ -49,7 +49,7 @@ export default function Home() {
                 {receiptRight.tags.slice(0, 3).map((tag) => (
                   <span
                     key={tag}
-                    className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-white/10 text-white border border-white/20"
+                    className="badge-tag"
                   >
                     {tag}
                   </span>

@@ -10,7 +10,7 @@ export function ProjectCard({ project, source = "projects" }: ProjectCardProps) 
   return (
     <Link
       href={`/projects/${project.slug}?ref=${source}`}
-      className="group relative flex flex-col p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-300 h-full overflow-hidden"
+      className="group relative flex flex-col p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-200 ease-out h-full overflow-hidden"
     >
       <div className="absolute top-0 right-0 p-6 opacity-0 group-hover:opacity-100 transition-opacity transform translate-x-2 group-hover:translate-x-0">
         <span className="text-white">→</span>
@@ -31,10 +31,7 @@ export function ProjectCard({ project, source = "projects" }: ProjectCardProps) 
 
         <div className="flex flex-wrap gap-2 pt-2">
           {project.tags.slice(0, 3).map((tag) => (
-            <span
-              key={tag}
-              className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-white/10 text-white border border-white/20"
-            >
+            <span key={tag} className="badge-tag">
               {tag}
             </span>
           ))}
