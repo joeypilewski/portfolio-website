@@ -26,7 +26,7 @@ export const projects: Project[] = [
       "Handles shared items, tax, tips, and custom splits",
       "One-tap Venmo request generation",
     ],
-    tags: ["Swift", "SwiftUI", "OpenAI API"],
+    tags: ["iOS", "SwiftUI", "OpenAI API"],
     links: {
       testflight: "https://testflight.apple.com/join/Zfpad8B5",
     },
@@ -52,7 +52,7 @@ export const projects: Project[] = [
   },
   {
     slug: "rsm-validation-ip",
-    title: "RSM NetSuite Accelerators",
+    title: "RSM NetSuite IP",
     tagline: "Custom solutions → standardized products.",
     summary:
       "Developed validation tools (Vendor Master Validation, Inventory Status Enforcement) that RSM adopted as standard 'Accelerator' products. Saved 200+ consultant hours across a dozen implementations (~$50K in efficiency gains).",

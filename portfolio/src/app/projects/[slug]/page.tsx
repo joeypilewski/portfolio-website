@@ -6,6 +6,7 @@ import type { Metadata } from "next";
 
 interface Props {
     params: Promise<{ slug: string }>;
+    searchParams: Promise<{ ref?: string }>;
 }
 
 export async function generateStaticParams() {
@@ -25,26 +26,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
 }
 
-export default async function ProjectPage({ params }: Props) {
+export default async function ProjectPage({ params, searchParams }: Props) {
     const { slug } = await params;
+    const { ref } = await searchParams;
     const project = getProjectBySlug(slug);
 
     if (!project) {
         notFound();
     }
 
+    const backUrl = ref === "home" ? "/" : "/projects";
+    const backText = ref === "home" ? "Back to Home" : "Back to Projects";
+
     return (
         <div className="space-y-12 max-w-3xl">
-            <Link
-                href="/projects"
-                className="inline-flex items-center gap-2 text-text-muted hover:text-white transition-colors"
-            >
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
-                </svg>
-                Back to Projects
-            </Link>
-
             <header className="space-y-4">
                 <div className="flex flex-wrap gap-2">
                     {project.tags.map((tag) => (
@@ -136,6 +131,18 @@ export default async function ProjectPage({ params }: Props) {
                     )}
                 </section>
             )}
+
+            <div className="pt-8">
+                <Link
+                    href={backUrl}
+                    className="inline-flex items-center gap-2 text-text-muted hover:text-white transition-colors"
+                >
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
+                    </svg>
+                    {backText}
+                </Link>
+            </div>
         </div>
     );
 }

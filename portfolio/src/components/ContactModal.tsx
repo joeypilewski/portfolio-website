@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
+import { CONTACT_INFO, SOCIAL_LINKS } from "@/constants/contact";
 
 interface ContactModalProps {
     isOpen: boolean;
@@ -73,10 +74,10 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
                         <div>
                             <p className="text-sm text-text-muted">Email</p>
                             <a
-                                href="mailto:joeypilewski@gmail.com"
+                                href={`mailto:${CONTACT_INFO.email}`}
                                 className="text-lg text-white hover:text-accent transition-colors"
                             >
-                                joeypilewski@gmail.com
+                                {CONTACT_INFO.email}
                             </a>
                         </div>
                     </div>
@@ -90,10 +91,10 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
                         <div>
                             <p className="text-sm text-text-muted">Phone</p>
                             <a
-                                href="tel:+16315136992"
+                                href={`tel:${CONTACT_INFO.phone.tel}`}
                                 className="text-lg text-white hover:text-accent transition-colors"
                             >
-                                (631) 513-6992
+                                {CONTACT_INFO.phone.display}
                             </a>
                         </div>
                     </div>
@@ -107,13 +108,13 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
                         </div>
                         <div>
                             <p className="text-sm text-text-muted">Location</p>
-                            <p className="text-lg text-white">Long Island, NY</p>
+                            <p className="text-lg text-white">{CONTACT_INFO.location}</p>
                         </div>
                     </div>
 
                     <div className="pt-4 flex gap-3">
                         <a
-                            href="https://linkedin.com/in/josephpilewski12"
+                            href={SOCIAL_LINKS.linkedin}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="flex-1 py-3 rounded-full border border-white/10 bg-white/5 text-white hover:bg-white/10 transition-colors flex items-center justify-center gap-2 text-sm sm:text-lg"
@@ -124,7 +125,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
                             LinkedIn
                         </a>
                         <a
-                            href="https://github.com/joeypilewski"
+                            href={SOCIAL_LINKS.github}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="flex-1 py-3 rounded-full border border-white/10 bg-white/5 text-white hover:bg-white/10 transition-colors flex items-center justify-center gap-2 text-sm sm:text-lg"

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Header, Footer } from "@/components";
+import { SITE_URL } from "@/constants/contact";
 import "./globals.css";
 
 const inter = Inter({
@@ -37,7 +38,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://joeypilewski.com",
+    url: SITE_URL,
     siteName: "Joey Pilewski",
     title: "Joey Pilewski · Technical Solutions Architect",
     description:

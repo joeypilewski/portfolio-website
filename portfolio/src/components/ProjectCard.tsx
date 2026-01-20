@@ -3,12 +3,13 @@ import type { Project } from "@/content/projects";
 
 interface ProjectCardProps {
   project: Project;
+  source?: "home" | "projects";
 }
 
-export function ProjectCard({ project }: ProjectCardProps) {
+export function ProjectCard({ project, source = "projects" }: ProjectCardProps) {
   return (
     <Link
-      href={`/projects/${project.slug}`}
+      href={`/projects/${project.slug}?ref=${source}`}
       className="group relative flex flex-col p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-300 h-full overflow-hidden"
     >
       <div className="absolute top-0 right-0 p-6 opacity-0 group-hover:opacity-100 transition-opacity transform translate-x-2 group-hover:translate-x-0">

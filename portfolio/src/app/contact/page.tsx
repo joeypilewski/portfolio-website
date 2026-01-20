@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { CONTACT_INFO, SOCIAL_LINKS } from "@/constants/contact";
 
 export default function ContactPage() {
     return (
@@ -24,10 +25,10 @@ export default function ContactPage() {
                             <div>
                                 <p className="text-sm text-text-muted">Email</p>
                                 <a
-                                    href="mailto:joeypilewski@gmail.com"
+                                    href={`mailto:${CONTACT_INFO.email}`}
                                     className="text-white hover:text-accent transition-colors"
                                 >
-                                    joeypilewski@gmail.com
+                                    {CONTACT_INFO.email}
                                 </a>
                             </div>
                         </div>
@@ -41,10 +42,10 @@ export default function ContactPage() {
                             <div>
                                 <p className="text-sm text-text-muted">Phone</p>
                                 <a
-                                    href="tel:+16315136992"
+                                    href={`tel:${CONTACT_INFO.phone.tel}`}
                                     className="text-white hover:text-accent transition-colors"
                                 >
-                                    (631) 513-6992
+                                    {CONTACT_INFO.phone.display}
                                 </a>
                             </div>
                         </div>
@@ -58,7 +59,7 @@ export default function ContactPage() {
                             </div>
                             <div>
                                 <p className="text-sm text-text-muted">Location</p>
-                                <p className="text-white">Long Island, NY</p>
+                                <p className="text-white">{CONTACT_INFO.location}</p>
                             </div>
                         </div>
                     </div>
@@ -66,7 +67,7 @@ export default function ContactPage() {
 
                 <div className="flex gap-4">
                     <a
-                        href="https://linkedin.com/in/josephpilewski12"
+                        href={SOCIAL_LINKS.linkedin}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex items-center gap-2 px-6 py-3 rounded-full border border-white/10 bg-white/5 text-white hover:bg-white/10 transition-colors"
@@ -77,7 +78,7 @@ export default function ContactPage() {
                         LinkedIn
                     </a>
                     <a
-                        href="https://github.com/joeypilewski"
+                        href={SOCIAL_LINKS.github}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex items-center gap-2 px-6 py-3 rounded-full border border-white/10 bg-white/5 text-white hover:bg-white/10 transition-colors"
