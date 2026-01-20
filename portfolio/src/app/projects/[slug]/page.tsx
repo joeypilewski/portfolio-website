@@ -151,7 +151,7 @@ export default async function ProjectPage({ params, searchParams }: Props) {
                         {/* What I'd Do Next */}
                         {project.details.nextSteps && (
                             <div className="border-t border-white/10 pt-10">
-                                <h2 className="text-xl font-bold text-white mb-3">What I'd Do Next</h2>
+                                <h2 className="text-xl font-bold text-white mb-3">What I&apos;d Do Next</h2>
                                 <p className="text-text-muted leading-relaxed">{project.details.nextSteps}</p>
                             </div>
                         )}
