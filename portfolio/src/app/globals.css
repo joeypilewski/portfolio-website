@@ -50,7 +50,7 @@
 
   /* New Consolidated Pill Styles */
   .badge-status {
-    @apply inline-flex items-center gap-2 px-3 py-1 rounded-full border border-accent/20 bg-accent/10 text-[10px] sm:text-xs font-bold uppercase tracking-wider text-white;
+    @apply inline-flex items-center gap-2 px-3 py-1 rounded-full border border-accent/20 bg-accent/10 text-[10px] sm:text-xs font-semibold text-white;
   }
 
   .badge-status-dot {
@@ -73,21 +73,7 @@
     @apply bg-accent/10 border-accent/20 text-white;
   }
 
-  /* Buttons */
-  .btn {
-    @apply inline-flex items-center justify-center px-4 py-2.5 rounded-full;
-    @apply border border-slate-400/35 bg-card/90 text-text text-sm;
-    @apply cursor-pointer transition-all duration-150 ease-out;
-    @apply hover:-translate-y-0.5 hover:scale-[1.01] hover:border-accent;
-    @apply hover:shadow-lg;
-    @apply focus:outline-none focus:ring-2 focus:ring-accent/50 focus:ring-offset-2 focus:ring-offset-bg;
-  }
 
-  .btn-primary {
-    @apply bg-gradient-btn-primary border-accent shadow-btn-primary;
-    @apply text-[#0b1220] font-semibold;
-    @apply hover:shadow-btn-primary-hover;
-  }
 
   /* Tags */
   .tag {

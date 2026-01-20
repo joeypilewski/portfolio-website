@@ -34,12 +34,25 @@ export default function Home() {
               </div>
 
               <div>
-                <h2 className="text-3xl md:text-4xl font-bold text-white mb-3 group-hover:text-accent transition-colors duration-200">
-                  {receiptRight.title}
-                </h2>
-                <p className="text-xl text-accent font-medium mb-4">
-                  {receiptRight.tagline}
-                </p>
+                <div className="flex flex-row items-center gap-6 md:gap-8 mb-6">
+                  <div className="relative w-20 h-20 md:w-24 md:h-24 flex-shrink-0 rounded-2xl overflow-hidden shadow-lg group-hover:scale-105 transition-transform duration-300">
+                    <Image
+                      src="/SlipSplitIcon1-iOS-Default-1024x1024@1x.png"
+                      alt={`${receiptRight.title} App Icon`}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 80px, 96px"
+                    />
+                  </div>
+                  <div>
+                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-2 group-hover:text-accent transition-colors duration-200">
+                      {receiptRight.title}
+                    </h2>
+                    <p className="text-xl text-accent font-medium">
+                      {receiptRight.tagline}
+                    </p>
+                  </div>
+                </div>
                 <p className="text-text-muted leading-relaxed max-w-3xl">
                   {receiptRight.summary}
                 </p>
