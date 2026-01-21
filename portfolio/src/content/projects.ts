@@ -63,7 +63,7 @@ export const projects: Project[] = [
     title: "Agentic Trader",
     tagline: "Autonomous market analysis and execution.",
     summary:
-      "AI trading agents that research market data, assess risk, and execute paper trades using OpenAI Agents SDK.",
+      "AI trading agents that research, assess risk, and execute trades using OpenAI Agents SDK.",
     bullets: [
       "Autonomous agents research market data, analyze risk factors, and determine position sizing.",
       "Custom tool-calling logic enables the agent to access market data via IBKR and Polygon.io.",
@@ -97,7 +97,7 @@ export const projects: Project[] = [
     title: "Supplier Quality Toolkit",
     tagline: "From custom tool to commercial product.",
     summary:
-      "NetSuite procurement validation that blocks purchase orders from unapproved suppliers or for items with incomplete records.",
+      "NetSuite procurement validation that blocks bad purchase orders. RSM productized it as commercial IP.",
     bullets: [
       "Automatically blocks purchase orders from unapproved suppliers or with incomplete product records.",
       "Enforces data integrity across UI entry, CSV imports, and automated integrations.",
@@ -128,7 +128,7 @@ export const projects: Project[] = [
     title: "Inventory Status Validations",
     tagline: "Compliance automation, productized.",
     summary:
-      "Blocks restricted inventory from usage in production and shipping. Built for compliance requirements.",
+      "Blocks quarantined inventory from production and shipping. Built for compliance; sold by RSM as IP.",
     bullets: [
       "Blocks quarantined, on-hold, or restricted inventory from being used in manufacturing and fulfillment.",
       "Configurable rules enforce inventory status restrictions consistently across UI, imports, and automation.",
@@ -159,7 +159,7 @@ export const projects: Project[] = [
     title: "Online Embroidery Store",
     tagline: "Operations and Systems Design.",
     summary:
-      "Managed end-to-end operations and systems for a custom embroidery business across multiple sales channels.",
+      "Grew custom embroidery business to $200K in year one with 3,500+ orders and a 5.0-star rating.",
     bullets: [
       "Designed end-to-end order-to-ship workflows integrating Shopify, Etsy, inventory systems, and fulfillment partners.",
       "Built dashboards to analyze sales trends, profit margins, and demand planning.",
