@@ -63,7 +63,7 @@ export const projects: Project[] = [
     title: "Agentic Trader",
     tagline: "Autonomous market analysis and execution.",
     summary:
-      "AI trading agent that researches market data, assesses risk, and executes paper trades.",
+      "AI trading agents that research market data, assess risk, and execute paper trades using OpenAI Agents SDK.",
     bullets: [
       "Autonomous agents research market data, analyze risk factors, and determine position sizing.",
       "Custom tool-calling logic enables the agent to access market data via IBKR and Polygon.io.",
