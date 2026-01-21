@@ -31,22 +31,26 @@ export const projects: Project[] = [
     summary:
       "iOS app using OpenAI vision API to itemize receipts and split bills through Venmo. No more spreadsheets.",
     bullets: [
-      "Snap a photo of any receipt and OpenAI vision API automatically itemizes every line item, tax, and tip.",
-      "Handles shared items, custom splits, and complex scenarios like uneven distribution across multiple people.",
-      "One-tap Venmo request generation eliminates the back-and-forth of coordinating payments.",
-      "Built with Swift/SwiftUI using OpenAI's structured outputs for reliable, consistent parsing.",
+      "Snap a photo of any receipt and OpenAI vision API itemizes every line item including tax and tip.",
+      "Handles shared items and complex scenarios like uneven distribution across multiple people.",
+      "Generates Venmo requests to help coordinate payments easily.",
+      "Built with Swift/SwiftUI using OpenAI's structured outputs for reliable parsing.",
     ],
     details: {
-      problem: "Splitting bills in group travel or dining creates social awkwardness and delayed payments. Existing apps (Splitwise, Venmo's split feature) require manual entry of every item. People resort to spreadsheets or rough approximations, leading to overpayments or unpaid balances.",
-      constraints: "Receipt image quality varies wildly (crumpled, poorly lit, faded thermal printing). OpenAI API costs ~$0.02 per receipt parse. Had to handle shared items, custom tips, and complex split logic without overwhelming users with configuration.",
+      problem:
+        "Splitting bills in group travel or dining can lead to social friction and delayed payments. Existing apps often require manual entry of every item. People resort to spreadsheets or rough approximations, which can be time-consuming and error-prone.",
+      constraints:
+        "Receipt image quality varies (crumpled, poorly lit, faded thermal printing). OpenAI API cost is $0.01 per receipt parse. Requires handling shared items and custom split logic while maintaining a simple user experience.",
       approach: [
-        "Used OpenAI's structured outputs (JSON schema validation) to ensure consistent parsing regardless of receipt format",
-        "Built SwiftUI interface that progressively reveals complexity: basic equal split → item-by-item → custom assignments",
-        "Cached parsed receipt data locally to avoid re-parsing costs if users iterate on splits",
-        "Integrated Venmo deep links for one-tap request generation with itemized notes"
+        "Used OpenAI's structured outputs (JSON schema validation) to help ensure consistent parsing regardless of receipt format",
+        "Built SwiftUI interface that allows for basic equal splits or detailed item-by-item assignments",
+        "Cached parsed receipt data locally to avoid re-parsing if users iterate on splits",
+        "Integrated Venmo deep links to simplify request generation with itemized notes",
       ],
-      result: "Currently in TestFlight with 20+ active users. Average parse accuracy: 95%+ on clear receipts. Users report saving 5-10 minutes per group meal vs manual entry. TestFlight feedback driving v2 feature prioritization.",
-      nextSteps: "Add multi-receipt trips (e.g., weekend getaway with 10+ meals). Integrate with Apple Wallet for automatic receipt capture. Support other payment apps (Zelle, Cash App)."
+      result:
+        "Currently in TestFlight for internal testing and iteration. Feedback from early usage is driving feature prioritization and workflow refinements.",
+      nextSteps:
+        "Add multi-receipt support for trips and weekend getaways. Explore integration with Apple Wallet for receipt capture. Support additional payment services.",
     },
     tags: ["iOS", "SwiftUI", "OpenAI API"],
     links: {
@@ -59,24 +63,28 @@ export const projects: Project[] = [
     title: "Agentic Trader",
     tagline: "Autonomous market analysis and execution.",
     summary:
-      "AI trading agent that researches, assesses risk, and executes trades using OpenAI Agents SDK.",
+      "AI trading agent that researches market data, assesses risk, and executes paper trades.",
     bullets: [
-      "Autonomous agent conducts market research, analyzes risk factors, and determines optimal position sizing.",
-      "Custom tool-calling logic enables the agent to access market data, execute trades, and maintain decision logs.",
-      "Interactive Brokers paper trading integration allows safe testing without real capital at risk.",
-      "Built-in risk constraints and fully auditable decision logs ensure transparency and controlled outcomes.",
+      "Autonomous agents research market data, analyze risk factors, and determine position sizing.",
+      "Custom tool-calling logic enables the agent to access market data via IBKR and Polygon.io.",
+      "Interactive Brokers paper trading integration allows for testing without real capital at risk.",
+      "Built-in risk constraints and local decision logs help ensure transparency and controlled outcomes.",
     ],
     details: {
-      problem: "Wanted to understand the practical limits of agentic AI in high-stakes, time-sensitive domains. Trading requires: real-time data synthesis, risk assessment, multi-step reasoning, and irreversible actions with financial consequences.",
-      constraints: "OpenAI Agents SDK was in beta with limited documentation. Interactive Brokers API is complex and unforgiving of errors. Had to design fail-safes for hallucinations, API rate limits, and network interruptions. Paper trading only—no real capital.",
+      problem:
+        "Wanted to explore the practical implementation of agentic AI in market analysis and trade execution. Trading requires real-time data synthesis, risk assessment, and multi-step reasoning.",
+      constraints:
+        "Market data APIs require robust error handling and rate limit management. System design must include fail-safes for unexpected agent behavior and network interruptions. Paper trading only—no real capital.",
       approach: [
-        "Built custom tool set: market data fetcher, portfolio analyzer, risk calculator, order executor, and decision logger",
-        "Implemented hard constraints: max position size, max daily trades, stop-loss triggers, and portfolio concentration limits",
-        "Used OpenAI's structured outputs to force agent responses into validated schemas before any trading action",
-        "Created detailed audit logs with agent reasoning, tool calls, and outcomes for post-trade analysis"
+        "Built custom tool set for fetching market data from IBKR and Polygon.io, analyzing portfolios, and executing orders",
+        "Implemented hard constraints such as maximum position size, stop-loss triggers, and portfolio concentration limits",
+        "Used OpenAI's structured outputs to require agent responses to follow validated schemas",
+        "Stored decision logs locally with agent reasoning and tool calls for post-trade review",
       ],
-      result: "Successfully executed 50+ autonomous trades in paper account over 3-week period. Agent demonstrated coherent multi-step reasoning (research → risk assessment → position sizing → execution). Identified edge cases where agent overweighted recent news vs fundamentals. Valuable learning on guardrails needed for agentic systems in high-risk domains.",
-      nextSteps: "Add backtesting framework using historical data. Implement agent 'sleep mode' during low-liquidity periods. Explore multi-agent architecture where separate agents handle research, risk, and execution."
+      result:
+        "Agent demonstrated coherent multi-step reasoning from initial research to execution in a paper trading environment. The project provided insights into the guardrails and data requirements needed for agentic systems in high-risk domains.",
+      nextSteps:
+        "Add backtesting framework using historical data. Implement agent 'sleep mode' during low-liquidity periods. Explore multi-agent architecture for specialized research and execution roles.",
     },
     tags: ["Python", "OpenAI Agents SDK", "IBKR API"],
     links: {
@@ -89,24 +97,28 @@ export const projects: Project[] = [
     title: "Supplier Quality Toolkit",
     tagline: "From custom tool to commercial product.",
     summary:
-      "NetSuite procurement validation that blocks bad purchase orders. RSM productized it as commercial IP.",
+      "NetSuite procurement validation that blocks purchase orders from unapproved suppliers or for items with incomplete records.",
     bullets: [
       "Automatically blocks purchase orders from unapproved suppliers or with incomplete product records.",
-      "Prevents costly procurement errors from manual entry, data imports, and automated workflows.",
-      "Particularly valuable for GxP-validated and compliance-focused manufacturing clients.",
-      "Now deployed as standard accelerator tooling across RSM's NetSuite consulting practice.",
+      "Enforces data integrity across UI entry, CSV imports, and automated integrations.",
+      "Helps prevent procurement errors for compliance-focused manufacturing clients.",
+      "Deployed as standard accelerator tooling across consulting practices.",
     ],
     details: {
-      problem: "Clients repeatedly purchased from wrong suppliers or with incomplete item records, causing receiving delays, quality issues, and audit failures. Manual approval processes were slow and inconsistently enforced.",
-      constraints: "Had to work across NetSuite UI, CSV imports, and API integrations without breaking existing workflows. GxP clients required full audit trails. Solution needed to be configurable enough to handle different client approval hierarchies.",
+      problem:
+        "Purchasing from the wrong suppliers or using incomplete item records can cause receiving delays and quality issues. Manual approval processes were often inconsistently enforced.",
+      constraints:
+        "Had to work across NetSuite UI, CSV imports, and API integrations. Solution needed to be configurable enough to handle different client approval hierarchies and validation requirements.",
       approach: [
-        "Built SuiteFlow workflows that validate supplier approval status and item record completeness before PO creation",
-        "Implemented real-time validation at multiple entry points: UI transactions, CSV imports, and REST API calls",
-        "Created configurable approval matrix tied to item categories, vendor types, and transaction amounts",
-        "Added detailed error messaging to guide users toward corrections instead of just blocking transactions"
+        "Built SuiteScript validations that check supplier approval status and item record completeness before PO creation",
+        "Implemented real-time enforcement at multiple entry points: UI transactions, CSV imports, and REST API calls",
+        "Created a configurable validation matrix tied to item categories and vendor types",
+        "Added detailed error messaging to help guide users toward data corrections",
       ],
-      result: "Reduced procurement errors by 95%+ at pilot client. Eliminated 4-5 weekly escalation calls between procurement and receiving. RSM productized it as an accelerator, now deployed at 12+ manufacturing clients. Saves ~$50K in consultant hours per implementation.",
-      nextSteps: "Add ML-based supplier risk scoring using historical quality data. Integrate with external compliance databases for automated vendor screening."
+      result:
+        "Successfully implemented as a procurement gate to enforce quality standards. Productized as a standard accelerator and deployed across multiple manufacturing client environments.",
+      nextSteps:
+        "Add supplier risk scoring based on historical data. Integrate with external compliance databases for automated vendor screening.",
     },
     tags: ["NetSuite", "IP Development", "Quality Control", "Process Automation"],
     featured: true,
@@ -116,24 +128,28 @@ export const projects: Project[] = [
     title: "Inventory Status Validations",
     tagline: "Compliance automation, productized.",
     summary:
-      "Blocks quarantined inventory from production and shipping. Built for compliance; sold by RSM as IP.",
+      "Blocks restricted inventory from usage in production and shipping. Built for compliance requirements.",
     bullets: [
-      "Blocks quarantined, on-hold, or restricted inventory from being used in manufacturing and shipping.",
+      "Blocks quarantined, on-hold, or restricted inventory from being used in manufacturing and fulfillment.",
       "Configurable rules enforce inventory status restrictions consistently across UI, imports, and automation.",
-      "Prevents quality escapes and compliance violations in regulated manufacturing environments.",
-      "Adopted by RSM as a commercial product for clients with strict inventory tracking requirements.",
+      "Helps reduce quality escapes in regulated manufacturing environments.",
+      "Adopted as a commercial product for clients with strict inventory tracking requirements.",
     ],
     details: {
-      problem: "Life sciences clients were shipping quarantined inventory or using restricted stock in manufacturing, creating FDA compliance risks and potential product recalls. NetSuite's native controls only worked in UI, not in automated processes.",
-      constraints: "Had to enforce rules across work orders, assemblies, fulfillment, and transfers without disrupting production velocity. Needed configurable logic per inventory status (Quarantine, Hold, Damaged, etc.). Zero tolerance for false negatives in GxP environments.",
+      problem:
+        "Using restricted stock in manufacturing or shipping can create quality risks and compliance concerns. Standard system controls often did not extend to automated processes.",
+      constraints:
+        "Had to enforce rules across work orders, assemblies, and fulfillment without disrupting production velocity. Needed configurable logic per inventory status (Quarantine, Hold, Damaged).",
       approach: [
-        "Built custom validation logic using SuiteScript that fires before inventory transactions commit",
-        "Created configurable rules engine allowing clients to define which statuses block which transaction types",
-        "Enforced controls consistently across UI, CSV imports, API calls, and scheduled scripts",
-        "Implemented detailed logging for audit trails and root cause analysis when blocks occur"
+        "Built custom validation logic using SuiteScript that fires before inventory transactions are committed",
+        "Created a configurable rules engine allowing definition of which statuses block specific transaction types",
+        "Enforced controls across UI, CSV imports, API calls, and scheduled scripts",
+        "Implemented audit logging for transactions and blocks to support root cause analysis",
       ],
-      result: "Prevented 100% of attempted restricted inventory usage at pilot client over 6-month period. Passed FDA audit with zero inventory control findings. RSM now sells it as an accelerator for regulated manufacturing clients. Typical ROI: avoid one $500K+ recall scenario.",
-      nextSteps: "Add predictive analytics to flag inventory at risk of expiration. Integrate with quality management systems for automated status updates based on test results."
+      result:
+        "Enforced inventory status restrictions across the system to help maintain compliance. Deployed as a scalable solution for regulated manufacturing clients.",
+      nextSteps:
+        "Add tools to flag inventory nearing expiration. Explore integration with quality management systems for automated status updates.",
     },
     tags: ["NetSuite", "IP Development", "Compliance", "Process Automation"],
     featured: true,
@@ -141,26 +157,30 @@ export const projects: Project[] = [
   {
     slug: "embroidery-store",
     title: "Online Embroidery Store",
-    tagline: "Designed end-to-end, grew to $200K.",
+    tagline: "Operations and Systems Design.",
     summary:
-      "Grew custom embroidery business to $200K in year one with 3,500+ orders and a 5.0-star rating.",
+      "Managed end-to-end operations and systems for a custom embroidery business across multiple sales channels.",
     bullets: [
-      "Designed end-to-end order-to-ship workflows integrating Shopify, Etsy, inventory systems, ClickUp, and outsourcing partners.",
-      "Built custom Excel and Power Query dashboards to analyze sales trends, profit margins, and demand planning.",
-      "Maintained perfect 5.0-star rating through quality control systems and sub-hour customer response times.",
-      "Balanced customer experience, cost optimization, and fulfillment complexity across multiple vendors and platforms.",
+      "Designed end-to-end order-to-ship workflows integrating Shopify, Etsy, inventory systems, and fulfillment partners.",
+      "Built dashboards to analyze sales trends, profit margins, and demand planning.",
+      "Implemented quality control systems and streamlined customer response processes.",
+      "Balanced customer experience, cost optimization, and fulfillment complexity across multiple platforms.",
     ],
     details: {
-      problem: "Custom embroidery requires coordinating: customer designs, blank inventory, outsourced embroidery partners, quality inspection, and fulfillment. Most competitors either scaled poorly (manual processes) or delivered poor quality (outsourced everything). Needed to hit both speed and quality at scale.",
-      constraints: "Self-funded with $5K starting capital. Two-week lead time from outsourcing partners. Shopify and Etsy have different order formats and fee structures. Had to maintain <5% defect rate to keep 5.0-star rating and avoid costly re-makes.",
+      problem:
+        "Custom embroidery requires coordinating customer designs, blank inventory, embroidery partners, and quality inspection. Needed to maintain speed and quality as the business scaled across different platforms.",
+      constraints:
+        "Required managing two-week lead times from partners. Different platforms like Shopify and Etsy had distinct order formats and fee structures.",
       approach: [
-        "Built ClickUp workflows mapping each order through: design approval → embroidery partner assignment → quality check → shipment",
-        "Created Excel/Power Query dashboards refreshing daily: inventory turns, margin by product line, partner defect rates, customer acquisition cost by channel",
-        "Implemented quality gates: photo review of every embroidery before shipping, spot-checks of partner work, pre-emptive replacements for close-call items",
-        "Responded to every customer message within 1 hour during business hours to build trust and catch issues early"
+        "Defined workflows mapping each order through design approval, partner assignment, and quality checks",
+        "Created dashboards to monitor inventory turns, margins, and customer acquisition costs",
+        "Implemented quality gates including photo reviews of designs before shipping and spot-checks of partner work",
+        "Established processes for rapid customer communication to build trust and resolve questions early",
       ],
-      result: "$200K revenue in year one with 3,500+ orders (avg $57 order value). Perfect 5.0-star rating across 500+ reviews on Etsy. 4.8% defect rate (industry standard: ~10%). Learned that operational systems are as valuable as product—buyers paid premium for reliability.",
-      nextSteps: "Automate design file validation to catch customer errors pre-production. Build direct partnerships with embroidery equipment vendors to bring production in-house for faster turnaround and margin expansion."
+      result:
+        "Grew the business across Shopify and Etsy by focusing on operational reliability. Reviews highlighted the consistency and quality of the products and service.",
+      nextSteps:
+        "Explore automating design file validation. Build direct partnerships with equipment vendors to expand production capabilities.",
     },
     tags: ["Shopify", "Etsy", "Operations Design", "Power Query", "Systems Integration"],
     links: {
