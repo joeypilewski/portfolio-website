@@ -5,3 +5,5 @@ export { ProjectCard } from "./ProjectCard";
 export { ExperienceTimeline } from "./ExperienceTimeline";
 export { SkillGroup } from "./SkillGroup";
 export { ContactModal } from "./ContactModal";
+export { ChatProvider, ChatPillComposer, ChatPanel, ChatMobileOverlay, ChatLauncherIcon, useChat } from "./chat";
+

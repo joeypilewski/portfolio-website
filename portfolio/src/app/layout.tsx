@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { Header, Footer } from "@/components";
+import { Header, Footer, ChatProvider, ChatPanel, ChatMobileOverlay, ChatLauncherIcon } from "@/components";
 import { SITE_URL } from "@/constants/contact";
 import "./globals.css";
 
@@ -68,12 +68,23 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.variable}>
       <body className="font-sans">
-        <Header />
-        <main className="max-w-content mx-auto px-6 pt-4 md:pt-8 pb-8">{children}</main>
-        <div className="max-w-content mx-auto px-6">
-          <Footer />
-        </div>
+        <ChatProvider>
+          <Header />
+          <main className="max-w-content mx-auto px-6 pt-4 md:pt-8 pb-8">{children}</main>
+          <div className="max-w-content mx-auto px-6">
+            <Footer />
+          </div>
+          {/* Chat UI - Desktop */}
+          <div className="hidden md:block">
+            <ChatPanel />
+          </div>
+          {/* Chat UI - Mobile */}
+          <ChatMobileOverlay />
+          {/* Minimized state launcher */}
+          <ChatLauncherIcon />
+        </ChatProvider>
       </body>
     </html>
   );
 }
+

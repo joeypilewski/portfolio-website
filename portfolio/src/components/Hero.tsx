@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { ContactModal } from "./ContactModal";
+import { ChatPillComposer } from "./chat";
 
 export function Hero() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -66,6 +67,8 @@ export function Hero() {
               <span className="relative z-10 whitespace-nowrap">Resume</span>
             </a>
           </div>
+
+          <ChatPillComposer />
 
           <div className="pt-4 md:pt-8 flex flex-wrap items-center gap-6 text-sm text-text-muted">
             <span className="flex items-center gap-2">

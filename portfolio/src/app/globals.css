@@ -195,4 +195,35 @@
   .delay-500 {
     animation-delay: 500ms;
   }
+
+  /* Chat safe areas for mobile */
+  .safe-area-top {
+    padding-top: env(safe-area-inset-top, 0px);
+  }
+
+  .safe-area-bottom {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  /* Chat animations */
+  @keyframes chat-slide-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .chat-panel,
+  .chat-mobile-overlay {
+    animation: chat-slide-up 0.2s ease-out;
+  }
+
+  .chat-launcher {
+    animation: fadeIn 0.2s ease-out;
+  }
 }
