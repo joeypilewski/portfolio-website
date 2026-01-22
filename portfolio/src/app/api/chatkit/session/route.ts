@@ -3,7 +3,10 @@ import { NextResponse } from 'next/server';
 
 export async function POST(req: Request) {
     try {
-        const { userId } = await req.json();
+        const { userId: providedUserId } = await req.json();
+
+        // Generate a new user ID if one wasn't provided
+        const userId = providedUserId || crypto.randomUUID();
 
         const apiKey = process.env.OPENAI_API_KEY;
         const workflowId = process.env.CHATKIT_WORKFLOW_ID;
