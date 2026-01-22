@@ -226,4 +226,23 @@
   .chat-launcher {
     animation: fadeIn 0.2s ease-out;
   }
+
+  /* Mobile ChatKit container optimizations */
+  .chatkit-mobile-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Ensure ChatKit internal elements handle mobile properly */
+  @media (max-width: 767px) {
+    .chatkit-mobile-container [data-chatkit-messages] {
+      flex: 1;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .chatkit-mobile-container [data-chatkit-composer] {
+      padding-bottom: env(safe-area-inset-bottom, 8px);
+    }
+  }
 }

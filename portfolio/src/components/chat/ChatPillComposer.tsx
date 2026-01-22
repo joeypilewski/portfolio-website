@@ -1,15 +1,19 @@
 "use client";
 
-import { useState, KeyboardEvent } from "react";
+import { useState, useRef, KeyboardEvent } from "react";
 import { useChat } from "./ChatProvider";
 
 export function ChatPillComposer() {
     const [message, setMessage] = useState("");
     const { openChat } = useChat();
+    const inputRef = useRef<HTMLInputElement>(null);
 
     const handleSubmit = () => {
         const trimmedMessage = message.trim();
         if (!trimmedMessage) return;
+
+        // Blur input to dismiss mobile keyboard
+        inputRef.current?.blur();
 
         openChat(trimmedMessage);
         setMessage("");
@@ -26,12 +30,13 @@ export function ChatPillComposer() {
         <div className="chat-pill-composer mt-6">
             <div className="relative flex items-center w-full max-w-md">
                 <input
+                    ref={inputRef}
                     type="text"
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
                     onKeyDown={handleKeyDown}
                     placeholder="Ask about hiring Joey…"
-                    className="w-full px-5 py-3 pr-12 rounded-full bg-white/5 backdrop-blur-sm border border-white/20 text-white placeholder-text-muted text-sm focus:outline-none focus:border-accent/50 focus:ring-2 focus:ring-accent/20 transition-all duration-200"
+                    className="w-full px-5 py-3 pr-12 rounded-full bg-white/5 backdrop-blur-sm border border-white/20 text-white placeholder-text-muted text-base sm:text-sm focus:outline-none focus:border-accent/50 focus:ring-2 focus:ring-accent/20 transition-all duration-200"
                     aria-label="Chat message input"
                 />
                 <button
