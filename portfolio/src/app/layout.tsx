@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import Script from "next/script";
 import { Header, Footer, ChatProvider, ChatPanel, ChatMobileOverlay, ChatLauncherIcon } from "@/components";
 import { SITE_URL } from "@/constants/contact";
 import "./globals.css";
@@ -83,6 +84,10 @@ export default function RootLayout({
           {/* Minimized state launcher */}
           <ChatLauncherIcon />
         </ChatProvider>
+        <Script
+          src="https://cdn.platform.openai.com/deployments/chatkit/chatkit.js"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );

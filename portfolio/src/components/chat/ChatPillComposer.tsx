@@ -37,7 +37,7 @@ export function ChatPillComposer() {
                 <button
                     onClick={handleSubmit}
                     disabled={!message.trim()}
-                    className="absolute right-2 p-2 rounded-full text-text-muted hover:text-accent hover:bg-accent/10 disabled:opacity-40 disabled:cursor-not-allowed transition-all duration-200"
+                    className="absolute right-1.5 p-1.5 rounded-full bg-accent text-white hover:bg-indigo-500 disabled:opacity-40 disabled:cursor-not-allowed transition-all duration-200 shadow-sm"
                     aria-label="Send message"
                 >
                     <svg
@@ -49,8 +49,8 @@ export function ChatPillComposer() {
                         <path
                             strokeLinecap="round"
                             strokeLinejoin="round"
-                            strokeWidth="2"
-                            d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
+                            strokeWidth="2.5"
+                            d="M5 10l7-7m0 0l7 7m-7-7v18"
                         />
                     </svg>
                 </button>
