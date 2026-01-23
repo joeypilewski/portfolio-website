@@ -18,7 +18,7 @@ export function SkillGroup({ group }: SkillGroupProps) {
           </span>
           {group.title}
         </h3>
-        <div className="flex flex-wrap gap-2.5">
+        <div className="flex flex-wrap gap-2">
           {group.skills.map((skill, i) => (
             <span key={i} className="badge-tag">
               {skill}

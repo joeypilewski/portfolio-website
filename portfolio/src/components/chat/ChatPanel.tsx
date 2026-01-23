@@ -98,10 +98,10 @@ export function ChatPanel() {
         autoSend();
     }, [state.pendingMessage, state.isOpen, sendUserMessage, sendMessage]);
 
-    if (!state.isOpen) return null;
 
+    // Keep mounted to preserve ChatKit session - just hide when not open
     return (
-        <div className="chat-panel fixed bottom-4 right-4 w-[380px] max-w-[calc(100vw-2rem)] h-[600px] max-h-[calc(100vh-6rem)] bg-card border border-white/10 rounded-2xl shadow-2xl flex flex-col overflow-hidden z-[9999] animate-slide-up">
+        <div className={`chat-panel fixed bottom-4 right-4 w-[380px] max-w-[calc(100vw-2rem)] h-[600px] max-h-[calc(100vh-6rem)] bg-card border border-white/10 rounded-2xl shadow-2xl flex flex-col overflow-hidden z-[9999] animate-slide-up ${!state.isOpen ? 'hidden' : ''}`}>
             {/* Header */}
             <div className="flex items-center justify-between px-4 py-3 border-b border-white/10 bg-white/5 shrink-0">
                 <div className="flex items-center gap-2">

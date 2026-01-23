@@ -5,7 +5,7 @@ import { ChatKit, useChatKit } from "@openai/chatkit-react";
 import { useEffect } from "react";
 
 export function ChatMobileOverlay() {
-    const { state, closeChat, userId, sendMessage } = useChat();
+    const { state, closeChat, minimizeChat, userId, sendMessage } = useChat();
 
     // Lock background scroll when open
     useEffect(() => {
@@ -92,10 +92,10 @@ export function ChatMobileOverlay() {
         autoSend();
     }, [state.pendingMessage, state.isOpen, sendUserMessage, sendMessage]);
 
-    if (!state.isOpen) return null;
 
+    // Keep mounted to preserve ChatKit session - just hide when not open
     return (
-        <div className="chat-mobile-overlay fixed inset-0 h-[100dvh] bg-bg z-[9999] flex flex-col animate-slide-up md:hidden">
+        <div className={`chat-mobile-overlay fixed inset-0 h-[100dvh] bg-bg z-[9999] flex flex-col animate-slide-up md:hidden ${!state.isOpen ? 'hidden' : ''}`}>
             {/* Header */}
             <div className="flex items-center justify-between px-4 py-3 border-b border-white/10 bg-card safe-area-top shrink-0">
                 <div className="flex items-center gap-2">
@@ -106,15 +106,26 @@ export function ChatMobileOverlay() {
                     </div>
                     <span className="font-semibold text-white">Chat with Joey&apos;s AI</span>
                 </div>
-                <button
-                    onClick={closeChat}
-                    className="p-3 -mr-1 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-xl text-text-muted hover:text-white hover:bg-white/10 active:bg-white/20 transition-colors"
-                    aria-label="Close chat"
-                >
-                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                </button>
+                <div className="flex items-center gap-1">
+                    <button
+                        onClick={minimizeChat}
+                        className="p-3 -mr-1 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-xl text-text-muted hover:text-white hover:bg-white/10 active:bg-white/20 transition-colors"
+                        aria-label="Minimize chat"
+                    >
+                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M20 12H4" />
+                        </svg>
+                    </button>
+                    <button
+                        onClick={closeChat}
+                        className="p-3 -mr-1 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-xl text-text-muted hover:text-white hover:bg-white/10 active:bg-white/20 transition-colors"
+                        aria-label="Close chat"
+                    >
+                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
             </div>
 
             {/* ChatKit Content */}
