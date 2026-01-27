@@ -87,9 +87,6 @@ export const projects: Project[] = [
         "Add backtesting framework using historical data. Implement agent 'sleep mode' during low-liquidity periods. Explore multi-agent architecture for specialized research and execution roles.",
     },
     tags: ["Python", "OpenAI Agents SDK", "IBKR API"],
-    links: {
-      github: "https://github.com/joeypilewski/agentic-trader",
-    },
     featured: true,
   },
   {
