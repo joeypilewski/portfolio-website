@@ -10,7 +10,7 @@ export function ProjectCard({ project, source = "projects" }: ProjectCardProps) 
   return (
     <Link
       href={`/projects/${project.slug}?ref=${source}`}
-      className="group relative flex flex-col p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-accent/50 transition-all duration-200 ease-out h-full overflow-hidden"
+      className="card group relative flex flex-col hover:bg-white/10 hover:border-accent/50 active:bg-white/10 active:border-accent/50 transition-all duration-200 ease-out h-full overflow-hidden"
     >
       <div className="absolute top-0 right-0 p-6 opacity-0 group-hover:opacity-100 transition-opacity transform translate-x-2 group-hover:translate-x-0">
         <span className="text-white">→</span>

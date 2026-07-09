@@ -39,13 +39,60 @@
   ::selection {
     @apply bg-accent/30 text-white;
   }
+
+  /* Site-wide focus treatment (web-conventions §2): one 2px accent ring,
+     offset from the element. Accent on the near-black background is ~7:1,
+     clearing the 3:1 non-text contrast floor. */
+  :focus-visible {
+    outline: 2px solid theme("colors.accent.DEFAULT");
+    outline-offset: 2px;
+  }
 }
 
 @layer components {
 
-  /* Card base */
+  /* The one card idiom (web-conventions §7): translucent fill + hairline
+     border. Padding defaults to p-6; override with a utility where needed. */
   .card {
-    @apply bg-gradient-card rounded-lg border border-border shadow-soft p-6;
+    @apply p-6 rounded-2xl bg-white/5 border border-white/10;
+  }
+
+  /* Glassy pill button — shared base for CTAs and link buttons */
+  .btn-glass {
+    @apply relative inline-flex items-center justify-center gap-2 rounded-full bg-white/5 backdrop-blur-sm border border-white/20 text-white/90 font-medium transition-all duration-200 ease-out;
+  }
+
+  .btn-glass:hover {
+    @apply bg-white/10 border-accent/50 shadow-glow-btn scale-[1.02];
+  }
+
+  .btn-glass:active {
+    @apply bg-white/15 scale-[0.98];
+  }
+
+  /* Page shell gutters: 24px, widened by notch/safe-area insets (§5) */
+  .page-gutters {
+    padding-left: max(1.5rem, env(safe-area-inset-left));
+    padding-right: max(1.5rem, env(safe-area-inset-right));
+  }
+
+  /* Touch tier (web-conventions §1, §8): controls that desktop styles
+     compact below 44px opt in, and coarse pointers restore the minimum.
+     Keyed off input capability, never viewport width. */
+  @media (pointer: coarse) {
+    .touch-target {
+      min-height: 44px;
+      min-width: 44px;
+    }
+  }
+
+  /* Skip link: visually hidden until keyboard-focused */
+  .skip-link {
+    @apply sr-only;
+  }
+
+  .skip-link:focus {
+    @apply not-sr-only fixed top-4 left-4 z-modal px-4 py-2 rounded-full bg-accent text-bg font-semibold;
   }
 
   /* New Consolidated Pill Styles */
@@ -73,36 +120,6 @@
     @apply bg-accent/10 border-accent/20 text-white;
   }
 
-
-
-  /* Tags */
-  .tag {
-    @apply px-2.5 py-0.5 rounded-full text-xs;
-    @apply border border-slate-400/40 bg-card/90 text-text-muted;
-  }
-
-  /* Lists with accent bullets */
-  .list {
-    @apply mt-3 space-y-1.5;
-  }
-
-  .list li {
-    @apply relative pl-5 text-[0.95rem] text-text-muted;
-  }
-
-  .list li::before {
-    content: "•";
-    @apply absolute left-1 text-accent;
-  }
-
-  /* Section styles */
-  .section-title {
-    @apply text-xl font-semibold tracking-tight mb-4;
-  }
-
-  .section-subtitle {
-    @apply text-sm text-text-muted mb-6;
-  }
 }
 
 @layer utilities {

@@ -3,79 +3,12 @@
 import { useChat } from "./ChatProvider";
 import { ChatKit, useChatKit } from "@openai/chatkit-react";
 import { useEffect } from "react";
+import { getChatKitOptions } from "./chatkit-options";
 
 export function ChatPanel() {
     const { state, closeChat, minimizeChat, userId, sendMessage } = useChat();
 
-    const { control, sendUserMessage } = useChatKit({
-        api: {
-            async getClientSecret(existing) {
-                if (existing) {
-                    // We could implement refresh logic here if needed
-                }
-
-                try {
-                    const res = await fetch("/api/chatkit/session", {
-                        method: "POST",
-                        headers: {
-                            "Content-Type": "application/json",
-                        },
-                        body: JSON.stringify({ userId }),
-                    });
-
-                    if (!res.ok) {
-                        throw new Error(`Failed to fetch session: ${res.statusText}`);
-                    }
-
-                    const { client_secret } = await res.json();
-                    return client_secret;
-                } catch (error) {
-                    console.error("Error fetching ChatKit secret:", error);
-                    throw error;
-                }
-            },
-        },
-        theme: {
-            colorScheme: "dark",
-            color: {
-                accent: {
-                    primary: "#818cf8", // Matches tailwind accent DEFAULT
-                    level: 2
-                }
-            },
-            radius: "pill",
-            density: "compact",
-            typography: { fontFamily: "'Inter', sans-serif" },
-        },
-        composer: {
-            placeholder: "Ask anything about Joey's work...",
-        },
-        startScreen: {
-            greeting: "Hi! I'm Joey's AI assistant. Ask me about his experience, skills, or projects.",
-            prompts: [
-                {
-                    label: "Key Skills",
-                    prompt: "What are Joey's key skills?",
-                    icon: "search"
-                },
-                {
-                    label: "NetSuite Work",
-                    prompt: "Tell me about Joey's work with NetSuite.",
-                    icon: "lucide:settings"
-                },
-                {
-                    label: "AI Projects",
-                    prompt: "What AI projects has he built?",
-                    icon: "write"
-                },
-                {
-                    label: "Contact",
-                    prompt: "How can I contact Joey?",
-                    icon: "user"
-                }
-            ],
-        },
-    });
+    const { control, sendUserMessage } = useChatKit(getChatKitOptions(userId));
 
     // Send pending message when chat opens
     useEffect(() => {
@@ -101,11 +34,11 @@ export function ChatPanel() {
 
     // Keep mounted to preserve ChatKit session - just hide when not open
     return (
-        <div className={`chat-panel fixed bottom-4 right-4 w-[380px] max-w-[calc(100vw-2rem)] h-[600px] max-h-[calc(100vh-6rem)] bg-card border border-white/10 rounded-2xl shadow-2xl flex flex-col overflow-hidden z-[9999] animate-slide-up ${!state.isOpen ? 'hidden' : ''}`}>
+        <div className={`chat-panel fixed bottom-4 right-4 w-[380px] max-w-[calc(100vw-2rem)] h-[600px] max-h-[calc(100vh-6rem)] bg-card border border-white/10 rounded-2xl shadow-2xl flex flex-col overflow-hidden z-chat-panel animate-slide-up ${!state.isOpen ? 'hidden' : ''}`}>
             {/* Header */}
             <div className="flex items-center justify-between px-4 py-3 border-b border-white/10 bg-white/5 shrink-0">
                 <div className="flex items-center gap-2">
-                    <div className="w-8 h-8 rounded-full bg-gradient-to-br from-accent to-indigo-500 flex items-center justify-center">
+                    <div className="w-8 h-8 rounded-full bg-gradient-to-br from-accent to-accent-strong flex items-center justify-center">
                         <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
                         </svg>
@@ -115,7 +48,7 @@ export function ChatPanel() {
                 <div className="flex items-center gap-1">
                     <button
                         onClick={minimizeChat}
-                        className="p-2 rounded-lg text-white/60 hover:text-white hover:bg-white/10 transition-colors"
+                        className="min-w-[44px] min-h-[44px] -my-2 flex items-center justify-center rounded-lg text-white/60 hover:text-white hover:bg-white/10 active:bg-white/20 transition-colors"
                         aria-label="Minimize chat"
                     >
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -124,7 +57,7 @@ export function ChatPanel() {
                     </button>
                     <button
                         onClick={closeChat}
-                        className="p-2 rounded-lg text-white/60 hover:text-white hover:bg-white/10 transition-colors"
+                        className="min-w-[44px] min-h-[44px] -my-2 flex items-center justify-center rounded-lg text-white/60 hover:text-white hover:bg-white/10 active:bg-white/20 transition-colors"
                         aria-label="Close chat"
                     >
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

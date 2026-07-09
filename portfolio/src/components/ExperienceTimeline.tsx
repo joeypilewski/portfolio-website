@@ -14,7 +14,7 @@ export function ExperienceTimeline({ data }: ExperienceTimelineProps) {
                         className="group relative pl-8 pb-12 border-l border-white/10 last:pb-0"
                     >
                         {/* Timeline dot */}
-                        <div className="absolute left-[-5px] top-0 h-2.5 w-2.5 rounded-full bg-accent shadow-[0_0_10px_rgba(129,140,248,0.5)]" />
+                        <div className="absolute left-[-5px] top-0 h-2.5 w-2.5 rounded-full bg-accent shadow-glow-dot" />
 
                         <div>
                             <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
@@ -29,7 +29,7 @@ export function ExperienceTimeline({ data }: ExperienceTimelineProps) {
                         <div className="pt-2">
                             <ul className="space-y-2">
                                 {item.bullets.map((bullet, i) => (
-                                    <li key={i} className="text-base text-gray-400 flex items-start gap-3">
+                                    <li key={i} className="text-base text-text-muted flex items-start gap-3">
                                         <span className="mt-2 w-1 h-1 rounded-full bg-white/20 shrink-0" />
                                         {bullet}
                                     </li>

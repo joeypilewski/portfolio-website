@@ -11,7 +11,7 @@ export function ChatLauncherIcon() {
     return (
         <button
             onClick={restoreChat}
-            className="chat-launcher fixed bottom-4 right-4 w-14 h-14 rounded-full bg-gradient-to-br from-accent to-indigo-500 shadow-lg shadow-accent/30 flex items-center justify-center z-chat-launcher hover:scale-110 hover:shadow-xl hover:shadow-accent/40 transition-all duration-200 animate-fade-in"
+            className="chat-launcher fixed bottom-[max(1rem,env(safe-area-inset-bottom))] right-[max(1rem,env(safe-area-inset-right))] w-14 h-14 rounded-full bg-gradient-to-br from-accent to-accent-strong shadow-lg shadow-accent/30 flex items-center justify-center z-chat-launcher hover:scale-110 hover:shadow-xl hover:shadow-accent/40 active:scale-95 transition-all duration-200 animate-fade-in"
             aria-label="Open chat"
         >
             <svg

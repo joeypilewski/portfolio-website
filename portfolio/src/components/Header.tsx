@@ -49,11 +49,11 @@ export function Header() {
             background: 'linear-gradient(to bottom, black 0%, transparent 100%)'
           }}
         />
-        <nav className="relative z-10 max-w-content mx-auto px-6 py-4">
+        <nav className="relative z-10 max-w-content mx-auto page-gutters py-4">
           <div className="flex items-center justify-between">
             <Link
               href="/"
-              className="text-lg font-semibold tracking-tight hover:text-accent transition-colors"
+              className="touch-target inline-flex items-center text-lg font-semibold tracking-tight hover:text-accent active:text-accent transition-colors"
             >
               Joey Pilewski
             </Link>
@@ -68,7 +68,7 @@ export function Header() {
                   <li key={item.href}>
                     <Link
                       href={item.href}
-                      className={`px-3 py-2 rounded-full text-sm transition-all ${isActive
+                      className={`touch-target inline-flex items-center justify-center px-3 py-2 rounded-full text-sm transition-all active:bg-white/10 ${isActive
                         ? "bg-accent/10 text-accent"
                         : "text-text-muted hover:text-text hover:bg-card/50"
                         }`}
@@ -81,7 +81,7 @@ export function Header() {
             </ul>
 
             {/* Placeholder for mobile button spacing */}
-            <div className="md:hidden w-10 h-10" />
+            <div className="md:hidden w-11 h-11" />
           </div>
         </nav>
       </header>
@@ -89,7 +89,7 @@ export function Header() {
       {/* Mobile Menu Button - Fixed position so it's always on top */}
       <button
         onClick={() => setIsMenuOpen(!isMenuOpen)}
-        className="md:hidden fixed top-4 right-6 z-menu w-10 h-10 flex items-center justify-center text-text-muted hover:text-white transition-colors"
+        className="md:hidden fixed top-4 right-[max(1.5rem,env(safe-area-inset-right))] z-menu w-11 h-11 flex items-center justify-center text-text-muted hover:text-white active:text-white transition-colors"
         aria-label={isMenuOpen ? "Close menu" : "Open menu"}
         aria-expanded={isMenuOpen}
       >
@@ -111,9 +111,8 @@ export function Header() {
 
       {/* Mobile Menu Overlay */}
       <div
-        className={`fixed inset-0 z-header-bg md:hidden transition-all duration-200 ${isMenuOpen ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"
+        className={`fixed inset-0 z-header-bg bg-bg md:hidden transition-all duration-200 ${isMenuOpen ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"
           }`}
-        style={{ backgroundColor: "#0a0a0a" }}
         aria-hidden={!isMenuOpen}
       >
         <nav
@@ -129,7 +128,7 @@ export function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`text-3xl font-semibold transition-all duration-200 ${isActive ? "text-accent" : "text-white hover:text-accent"
+                className={`text-3xl font-semibold transition-all duration-200 ${isActive ? "text-accent" : "text-white hover:text-accent active:text-accent"
                   }`}
                 style={{
                   transitionDelay: isMenuOpen ? `${index * 50}ms` : "0ms",

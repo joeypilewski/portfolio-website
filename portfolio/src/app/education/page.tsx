@@ -11,7 +11,7 @@ export default function EducationPage() {
             </div>
 
             <div className="space-y-8">
-                <div className="p-6 rounded-2xl bg-white/5 border border-white/10">
+                <div className="card">
                     <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-4">
                         <div>
                             <h2 className="text-2xl font-bold text-white">Bentley University</h2>

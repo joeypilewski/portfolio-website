@@ -6,9 +6,9 @@ interface SkillGroupProps {
 
 export function SkillGroup({ group }: SkillGroupProps) {
   return (
-    <div className="group/card relative p-6 sm:p-8 rounded-2xl bg-white/[0.02] border border-white/5 hover:bg-white/[0.04] hover:border-white/10 transition-all duration-200 h-full overflow-hidden">
+    <div className="card group/card relative p-6 sm:p-8 hover:bg-white/[0.07] hover:border-white/20 transition-all duration-200 h-full overflow-hidden">
       {/* Background glow on hover */}
-      <div className="absolute -inset-0.5 bg-gradient-to-br from-accent/0 to-indigo-500/0 group-hover/card:from-accent/5 group-hover/card:to-indigo-500/5 transition-all duration-200 rounded-2xl -z-10" />
+      <div className="absolute -inset-0.5 bg-gradient-to-br from-accent/0 to-accent-strong/0 group-hover/card:from-accent/5 group-hover/card:to-accent-strong/5 transition-all duration-200 rounded-2xl -z-10" />
 
       <div className="space-y-6 relative z-10">
         <h3 className="badge-status !bg-transparent !border-none !p-0">

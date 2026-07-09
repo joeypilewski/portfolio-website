@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
@@ -58,9 +58,18 @@ export const metadata: Metadata = {
     follow: true,
   },
   other: {
-    "theme-color": "#0a0a0a",
     "apple-mobile-web-app-status-bar-style": "black-translucent",
   },
+};
+
+// viewport-fit: cover lets the layout extend under notches / the home
+// indicator, which is what makes the env(safe-area-inset-*) paddings
+// used by the page shell and chat overlay actually take effect (§5).
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+  themeColor: "#0a0a0a",
 };
 
 export default function RootLayout({
@@ -71,10 +80,13 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.variable}>
       <body className="font-sans">
+        <a href="#main-content" className="skip-link">
+          Skip to content
+        </a>
         <ChatProvider>
           <Header />
-          <main className="max-w-content mx-auto px-6 pt-4 md:pt-8 pb-8">{children}</main>
-          <div className="max-w-content mx-auto px-6">
+          <main id="main-content" className="max-w-content mx-auto page-gutters pt-4 md:pt-8 pb-8">{children}</main>
+          <div className="max-w-content mx-auto page-gutters">
             <Footer />
           </div>
           {/* Chat UI - Desktop */}
